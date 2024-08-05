@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    label: "Button",
+    label: "Primary",
     color: "base.white",
     bgColor: "blue.700",
     borderColor: "blue.600",
@@ -37,7 +37,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    label: "Button",
+    label: "Secondary",
     color: "base.white",
     bgColor: "blue.300",
     borderColor: "blue.300",
@@ -64,12 +64,30 @@ export const InlineSecondary: Story = {
 
 export const Warning: Story = {
   args: {
-    label: "warning",
+    label: "Warning",
+    color: "base.white",
+    bgColor: "yellow.500",
+    borderColor: "yellow.500",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    hover: "yellow.400",
+    pressed: "yellow.600",
+    disabled: "gray.200",
+    isDisabled: false,
   },
 };
 
-export const alarm: Story = {
+export const Alarm: Story = {
   args: {
     label: "alarm",
+    color: "base.white",
+    bgColor: "red.700",
+    borderColor: "red.700",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    hover: "red.500",
+    pressed: "red.600",
+    disabled: "gray.200",
+    isDisabled: false,
   },
 };
