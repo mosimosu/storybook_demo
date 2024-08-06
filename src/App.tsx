@@ -67,7 +67,13 @@ function App() {
         <CustomButton label="我是另外一顆按鈕，完全沒有傳入樣式參數"></CustomButton>
       </ThemeProvider>
       <StyledThemeProvider theme={theme}>
-        <StyledButton $primary>我是第一個</StyledButton>
+        <StyledButton
+          mode="primary"
+          disabled={isDisabled}
+          onClick={handleClick}
+        >
+          我是第一個
+        </StyledButton>
       </StyledThemeProvider>
     </>
   );
