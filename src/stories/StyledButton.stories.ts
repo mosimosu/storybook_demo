@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import StyledButton from "../stories/StyledButton"; // 請替換為你的 StyledButton 檔案路徑
 
 const meta: Meta<typeof StyledButton> = {
@@ -16,6 +17,11 @@ const meta: Meta<typeof StyledButton> = {
     disabled: { control: "boolean" },
     onClick: { action: "clicked" },
   },
+  args: {
+    $mode: "primary",
+    disabled: false,
+    onClick: fn(),
+  },
 };
 
 export default meta;
@@ -24,7 +30,7 @@ type Story = StoryObj<typeof StyledButton>;
 
 export const Primary: Story = {
   args: {
-    $mode: "warning",
+    $mode: "primary",
     disabled: false,
   },
 };
