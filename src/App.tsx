@@ -9,7 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "./constants/theme";
 import CustomButton from "./stories/CustomButton";
-import { StyledButton } from "./stories/styledComponentsButton";
+import StyledButton from "./stories/StyledButton";
 
 function App() {
   const [age, setAge] = useState("");
@@ -68,7 +68,7 @@ function App() {
       </ThemeProvider>
       <StyledThemeProvider theme={theme}>
         <StyledButton
-          mode="primary"
+          $mode="secondary"
           disabled={isDisabled}
           onClick={handleClick}
         >

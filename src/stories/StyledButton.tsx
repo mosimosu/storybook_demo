@@ -3,12 +3,12 @@ import styled, { css } from "styled-components";
 
 // Button 的 interface
 interface StyledButtonProps {
-  mode?: string;
+  $mode?: string;
   disabled?: boolean;
   onClick?: () => void;
 }
 
-// primary 按鈕的樣式
+// primary 按鈕樣式
 const primaryStyle = css`
   color: ${(props) => props.theme.palette?.base.white};
   background-color: ${(props) => props.theme.palette?.blue["700"]};
@@ -30,7 +30,7 @@ const primaryStyle = css`
   }
 `;
 
-// secondary 按鈕的樣式
+// secondary 按鈕樣式
 const secondaryStyle = css`
   color: ${(props) => props.theme.palette?.base.white};
   background-color: ${(props) => props.theme.palette?.blue["300"]};
@@ -46,9 +46,13 @@ const secondaryStyle = css`
     background-color: ${(props) => props.theme.palette?.blue["500"]};
     border-color: ${(props) => props.theme.palette?.blue["500"]};
   }
+  &:disabled {
+    background-color: ${(props) => props.theme.palette?.gray["200"]};
+    border-color: ${(props) => props.theme.palette?.gray["200"]};
+  }
 `;
 
-// warning 按鈕的樣式
+// warning 按鈕樣式
 const warningStyle = css`
   color: ${(props) => props.theme.palette?.base.black};
   background-color: ${(props) => props.theme.palette?.yellow["500"]};
@@ -64,9 +68,13 @@ const warningStyle = css`
     background-color: ${(props) => props.theme.palette?.yellow["600"]};
     border-color: ${(props) => props.theme.palette?.yellow["600"]};
   }
+  &:disabled {
+    background-color: ${(props) => props.theme.palette?.gray["200"]};
+    border-color: ${(props) => props.theme.palette?.gray["200"]};
+  }
 `;
 
-// alarm 按鈕的樣式
+// alarm 按鈕樣式
 const alarmStyle = css`
   color: ${(props) => props.theme.palette?.base.black};
   background-color: ${(props) => props.theme.palette?.red["500"]};
@@ -82,11 +90,15 @@ const alarmStyle = css`
     background-color: ${(props) => props.theme.palette?.red["600"]};
     border-color: ${(props) => props.theme.palette?.red["600"]};
   }
+  &:disabled {
+    background-color: ${(props) => props.theme.palette?.gray["200"]};
+    border-color: ${(props) => props.theme.palette?.gray["200"]};
+  }
 `;
 
 // 根據傳入的 props 設定 Button 的樣式
 const getButtonStyle = (props: StyledButtonProps) => {
-  switch (props.mode) {
+  switch (props.$mode) {
     case "primary":
       return primaryStyle;
     case "secondary":
@@ -96,13 +108,15 @@ const getButtonStyle = (props: StyledButtonProps) => {
     case "alarm":
       return alarmStyle;
     default:
-      return "";
+      return primaryStyle;
   }
 };
 
 // 使用 styled-components 覆寫 Button
-export const StyledButton = styled(Button)<StyledButtonProps>`
+const StyledButton = styled(Button)<StyledButtonProps>`
   && {
     ${(props) => getButtonStyle(props)}
   }
 `;
+
+export default StyledButton;
