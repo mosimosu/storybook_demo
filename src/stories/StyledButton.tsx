@@ -113,10 +113,22 @@ const getButtonStyle = (props: StyledButtonProps) => {
 };
 
 // 使用 styled-components 覆寫 Button
-const StyledButton = styled(Button)<StyledButtonProps>`
+export const StyledButton = styled(Button)<StyledButtonProps>`
   && {
     ${(props) => getButtonStyle(props)}
   }
 `;
 
-export default StyledButton;
+// 依據傳入的 $mode 呈現不同的樣式
+const StyledButtonWrapper = ({
+  $mode = "primary", // 預設 $mode 來呈現 primary 按鈕
+  ...props
+}: StyledButtonProps) => {
+  return (
+    <StyledButton $mode={$mode} {...props}>
+      Name
+    </StyledButton>
+  );
+};
+
+export default StyledButtonWrapper;
