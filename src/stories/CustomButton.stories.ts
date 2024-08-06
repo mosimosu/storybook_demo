@@ -28,6 +28,7 @@ export const Primary: Story = {
     borderColor: "blue.600",
     borderWidth: "1px",
     borderStyle: "solid",
+    borderRadius: "4px",
     hover: "blue.600",
     pressed: "blue.800",
     disabled: "gray.300",
@@ -43,6 +44,7 @@ export const Secondary: Story = {
     borderColor: "blue.300",
     borderWidth: "1px",
     borderStyle: "solid",
+    borderRadius: "4px",
     hover: "blue.400",
     pressed: "blue.500",
     disabled: "gray.200",
@@ -50,13 +52,13 @@ export const Secondary: Story = {
   },
 };
 
-export const InlinePrimary: Story = {
+export const OutlinePrimary: Story = {
   args: {
     label: "inline primary",
   },
 };
 
-export const InlineSecondary: Story = {
+export const OutlineSecondary: Story = {
   args: {
     label: "inline secondary",
   },
@@ -65,11 +67,12 @@ export const InlineSecondary: Story = {
 export const Warning: Story = {
   args: {
     label: "Warning",
-    color: "base.white",
+    color: "base.black",
     bgColor: "yellow.500",
     borderColor: "yellow.500",
     borderWidth: "1px",
     borderStyle: "solid",
+    borderRadius: "4px",
     hover: "yellow.400",
     pressed: "yellow.600",
     disabled: "gray.200",
@@ -85,6 +88,7 @@ export const Alarm: Story = {
     borderColor: "red.700",
     borderWidth: "1px",
     borderStyle: "solid",
+    borderRadius: "4px",
     hover: "red.500",
     pressed: "red.600",
     disabled: "gray.200",
