@@ -4,35 +4,43 @@ import theme from "../constants/theme";
 import { useState } from "react";
 
 // Your component props
-type props = {
+interface Props {
   label?: string;
   color?: string;
   bgColor?: string;
   borderColor?: string;
   borderWidth?: string;
   borderStyle?: string;
+  borderRadius?: string;
   hover?: string;
   pressed?: string;
   disabled?: string;
   isDisabled?: boolean;
+  [key: string]: any;
   onClick?: () => void;
-};
+}
 
 function CustomButton({
   label = "Button",
   color = "base.white",
-  bgColor = "base.white",
-  borderColor = "base.black",
+  bgColor = "blue.700",
+  borderColor = "blue.600",
   borderWidth = "1px",
   borderStyle = "solid",
+  borderRadius = "4px",
   hover = "blue.600",
-  pressed = "blue.900",
+  pressed = "blue.800",
   disabled = "gray.300",
   isDisabled = false,
-}: props) {
+  ...props
+}: Props) {
+  /** @type {*}
+   * @param isDisabled boolean
+   */
   const [isDisabledState, setIsDisabled] = useState(isDisabled);
+
   const handleClick = () => {
-    // 這裡可以根據你的邏輯來設置 isDisabled 的值
+    // 控制 isDisabled 的值
     setIsDisabled(!isDisabled);
   };
   return (
@@ -45,6 +53,7 @@ function CustomButton({
             borderColor: borderColor,
             borderWidth: borderWidth,
             borderStyle: borderStyle,
+            borderRadius: borderRadius,
             "&:hover": {
               bgcolor: hover,
               borderColor: hover,
@@ -67,6 +76,7 @@ function CustomButton({
           }}
           disabled={isDisabledState}
           onClick={handleClick}
+          {...props}
         >
           {label}
         </Button>
