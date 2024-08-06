@@ -7,6 +7,8 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Button } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./constants/theme";
+import CustomButton from "./stories/CustomButton";
+
 function App() {
   const [age, setAge] = useState("");
 
@@ -44,20 +46,23 @@ function App() {
             </Select>
           </FormControl>
         </Box>
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: "blue.300",
-            alignSelf: "center",
-            ":hover": { bgcolor: "yellow.400" },
-            ":active": { bgcolor: "purple.500" },
-            ":disabled": { bgcolor: "gray.300", color: "base.white" },
-          }}
-          disabled={isDisabled}
-          onClick={handleClick}
-        >
+        <Button variant="contained" disabled={isDisabled} onClick={handleClick}>
           Submit
         </Button>
+        <CustomButton
+          label="Primary"
+          color="base.white"
+          bgColor="blue.700"
+          borderColor="blue.600"
+          borderWidth="1px"
+          borderStyle="solid"
+          borderRadius="4px"
+          hover="blue.600"
+          pressed="blue.800"
+          disabled="gray.300"
+          isDisabled={isDisabled}
+        ></CustomButton>
+        <CustomButton label="我是另外一顆按鈕，完全沒有傳入樣式參數"></CustomButton>
       </ThemeProvider>
     </>
   );
