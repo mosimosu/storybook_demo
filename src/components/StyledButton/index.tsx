@@ -1,11 +1,12 @@
 import { Button } from "@mui/material";
 import styled, { css } from "styled-components";
 import { ButtonSize } from "../../enums/StyledButton/ButtonSize";
+import { ButtonType } from "../../enums/StyledButton/ButtonType";
 
 // Button 的 interface
 interface StyledButtonProps {
   // 按鈕樣式
-  $mode?: string;
+  $mode?: ButtonType;
   // 是否禁用
   disabled?: boolean;
   // 大小
@@ -19,7 +20,7 @@ interface StyledButtonProps {
 // 共同設定 props
 interface CommonSettingProps {
   // 按鈕樣式
-  $mode?: string;
+  $mode?: ButtonType;
   // 大小
   $size?: ButtonSize;
 }
@@ -28,7 +29,7 @@ interface CommonSettingProps {
 const commonSetting = css<CommonSettingProps>`
   ${(props) => {
     switch (props.$size) {
-      case "small":
+      case ButtonSize.small:
         return "height: 32px;";
       default:
         return "height: 40px;";
@@ -41,7 +42,7 @@ const commonSetting = css<CommonSettingProps>`
   border-radius: 6px;
   ${(props) => {
     switch (props.$size) {
-      case "small":
+      case ButtonSize.small:
         return "padding: 4px 8px;";
       default:
         return "padding: 0rem 1rem;";
@@ -196,17 +197,17 @@ const outlineSecondaryStyle = css`
 // 根據傳入的 props 設定 Button 的樣式
 const getButtonStyle = (props: StyledButtonProps) => {
   switch (props.$mode) {
-    case "primary":
+    case ButtonType.primary:
       return primaryStyle;
-    case "secondary":
+    case ButtonType.secondary:
       return secondaryStyle;
-    case "warning":
+    case ButtonType.warning:
       return warningStyle;
-    case "alarm":
+    case ButtonType.alarm:
       return alarmStyle;
-    case "outline-primary":
+    case ButtonType.outlinePrimary:
       return outlinePrimaryStyle;
-    case "outline-secondary":
+    case ButtonType.outlineSecondary:
       return outlineSecondaryStyle;
     default:
       return primaryStyle;
@@ -222,7 +223,7 @@ export const StyledButton = styled(Button)<StyledButtonProps>`
 
 // 定義一個 Wrapper 來包裹 Button 匯出
 const StyledButtonWrapper = ({
-  $mode = "primary", // 預設 $mode 來呈現 primary 按鈕
+  $mode = ButtonType.primary, // 預設 $mode 來呈現 primary 按鈕
   $size = ButtonSize.none, // 預設 $size 來呈現 medium 按鈕
   $isSelected = false, // 預設 $isSelected 來呈現未被選中
   ...props // 其他 props
