@@ -11,12 +11,30 @@ import theme from "./theme";
 import CustomButton from "./components/CustomButton";
 import { StyledButton } from "./components/StyledButton";
 import { ButtonSize } from "./enums/StyledButton/ButtonSize";
-
+interface ButtonState {
+  isDisabled: boolean;
+}
 function App() {
   const [age, setAge] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
+  };
+  const buttonNames = ["primary", "secondary", "warning", "alarm"];
+  const [buttonStates, setButtonStates] = useState<Record<string, ButtonState>>(
+    buttonNames.reduce(
+      (acc, name) => {
+        acc[name] = { isDisabled: false };
+        return acc;
+      },
+      {} as Record<string, ButtonState>
+    )
+  );
+  const handleDisabledary = (name: string) => {
+    setButtonStates((prevState) => ({
+      ...prevState,
+      [name]: { isDisabled: !prevState[name].isDisabled },
+    }));
   };
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -83,6 +101,15 @@ function App() {
         >
           按鈕名稱
         </StyledButton>
+        {buttonNames.map((name) => (
+          <StyledButton
+            $mode={name}
+            disabled={buttonStates[name].isDisabled}
+            onClick={() => handleDisabledary(name)}
+          >
+            {name}
+          </StyledButton>
+        ))}
         <StyledButton
           $mode="outline-primary"
           onClick={handleSelected}
