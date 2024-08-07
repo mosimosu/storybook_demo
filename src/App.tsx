@@ -11,6 +11,7 @@ import theme from "./theme";
 import CustomButton from "./components/CustomButton";
 import { StyledButton } from "./components/StyledButton";
 import { ButtonSize } from "./enums/StyledButton/ButtonSize";
+import { ButtonType } from "./enums/StyledButton/ButtonType";
 interface ButtonState {
   isDisabled: boolean;
 }
@@ -95,23 +96,24 @@ function App() {
       </ThemeProvider>
       <StyledThemeProvider theme={theme}>
         <StyledButton
-          $mode="outline-primary"
+          $mode={ButtonType.primary}
           disabled={isDisabled}
           onClick={handleDisabled}
         >
           按鈕名稱
         </StyledButton>
-        {buttonNames.map((name) => (
+        {buttonNames.map((name, index) => (
           <StyledButton
-            $mode={name}
+            $mode={name as ButtonType}
             disabled={buttonStates[name].isDisabled}
             onClick={() => handleDisabledary(name)}
+            key={index}
           >
             {name}
           </StyledButton>
         ))}
         <StyledButton
-          $mode="outline-primary"
+          $mode={ButtonType.outlinePrimary}
           onClick={handleSelected}
           $isSelected={isSelected}
           $size={ButtonSize.small}
