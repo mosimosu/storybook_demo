@@ -10,6 +10,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "./theme";
 import CustomButton from "./components/CustomButton";
 import { StyledButton } from "./components/StyledButton";
+import { ButtonSize } from "./enums/StyledButton/ButtonSize";
 
 function App() {
   const [age, setAge] = useState("");
@@ -86,7 +87,7 @@ function App() {
           $mode="outline-primary"
           onClick={handleSelected}
           $isSelected={isSelected}
-          $size="small"
+          $size={ButtonSize.small}
         >
           按鈕名稱
         </StyledButton>
