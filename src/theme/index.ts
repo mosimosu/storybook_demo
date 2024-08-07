@@ -83,23 +83,23 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "Noto Sans TC",
-    "text-tiny": {
+    textTiny: {
       fontSize: "0.75rem",
       lineHeight: "1rem",
     },
-    "text-small": {
+    textSmall: {
       fontSize: "0.875rem",
       lineHeight: "1.25rem",
     },
-    "text-medium": {
+    textMedium: {
       fontSize: "1rem",
       lineHeight: "1.5rem",
     },
-    "text-large": {
+    textLarge: {
       fontSize: "1.125rem",
       lineHeight: "1.75rem",
     },
-    "text-xlarge": {
+    textXlarge: {
       fontSize: "1.25rem",
       lineHeight: "1.75rem",
     },
