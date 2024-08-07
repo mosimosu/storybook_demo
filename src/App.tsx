@@ -68,11 +68,11 @@ function App() {
       </ThemeProvider>
       <StyledThemeProvider theme={theme}>
         <StyledButton
-          $mode="secondary"
+          $mode="primary"
           disabled={isDisabled}
           onClick={handleClick}
         >
-          我是第一個
+          按鈕名稱
         </StyledButton>
       </StyledThemeProvider>
     </>

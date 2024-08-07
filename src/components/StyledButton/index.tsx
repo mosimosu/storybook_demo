@@ -126,7 +126,7 @@ const StyledButtonWrapper = ({
 }: StyledButtonProps) => {
   return (
     <StyledButton $mode={$mode} {...props}>
-      Name
+      按鈕名稱
     </StyledButton>
   );
 };
