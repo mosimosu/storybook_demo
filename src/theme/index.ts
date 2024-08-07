@@ -81,6 +81,29 @@ const theme = createTheme({
       900: "#322659",
     },
   },
+  typography: {
+    fontFamily: "Noto Sans TC",
+    "text-tiny": {
+      fontSize: "0.75rem",
+      lineHeight: "1rem",
+    },
+    "text-small": {
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+    },
+    "text-medium": {
+      fontSize: "1rem",
+      lineHeight: "1.5rem",
+    },
+    "text-large": {
+      fontSize: "1.125rem",
+      lineHeight: "1.75rem",
+    },
+    "text-xlarge": {
+      fontSize: "1.25rem",
+      lineHeight: "1.75rem",
+    },
+  },
 });
 
 export default theme;
