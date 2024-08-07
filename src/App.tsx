@@ -19,10 +19,14 @@ function App() {
   };
 
   const [isDisabled, setIsDisabled] = useState(false);
-
-  const handleClick = () => {
+  const handleDisabled = () => {
     // 這裡可以根據你的邏輯來設置 isDisabled 的值
     setIsDisabled(!isDisabled);
+  };
+  const [isSelected, setIsSelected] = useState(false);
+  const handleSelected = () => {
+    // 這裡可以根據你的邏輯來設置 isSelected 的值
+    setIsSelected(!isSelected);
   };
 
   return (
@@ -48,7 +52,11 @@ function App() {
             </Select>
           </FormControl>
         </Box>
-        <Button variant="contained" disabled={isDisabled} onClick={handleClick}>
+        <Button
+          variant="contained"
+          disabled={isDisabled}
+          onClick={handleDisabled}
+        >
           Submit
         </Button>
         <CustomButton
@@ -68,9 +76,17 @@ function App() {
       </ThemeProvider>
       <StyledThemeProvider theme={theme}>
         <StyledButton
-          $mode="primary"
+          $mode="outline-primary"
           disabled={isDisabled}
-          onClick={handleClick}
+          onClick={handleDisabled}
+        >
+          按鈕名稱
+        </StyledButton>
+        <StyledButton
+          $mode="outline-primary"
+          onClick={handleSelected}
+          $isSelected={isSelected}
+          $size="small"
         >
           按鈕名稱
         </StyledButton>
