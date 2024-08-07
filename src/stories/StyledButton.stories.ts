@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import StyledButton from "../stories/StyledButton"; // 請替換為你的 StyledButton 檔案路徑
+import StyledButton from "../components/StyledButton";
 
 const meta: Meta<typeof StyledButton> = {
   title: "Example/StyledButton",

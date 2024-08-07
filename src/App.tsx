@@ -7,9 +7,9 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Button } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import theme from "./constants/theme";
-import CustomButton from "./stories/CustomButton";
-import { StyledButton } from "./stories/StyledButton";
+import theme from "./theme";
+import CustomButton from "./components/CustomButton";
+import { StyledButton } from "./components/StyledButton";
 
 function App() {
   const [age, setAge] = useState("");
