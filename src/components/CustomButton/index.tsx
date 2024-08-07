@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/material";
-import theme from "../constants/theme";
+import theme from "../../theme";
 import { useState } from "react";
 
 // Your component props
