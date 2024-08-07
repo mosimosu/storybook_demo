@@ -3,8 +3,11 @@ import styled, { css } from "styled-components";
 
 // Button 的 interface
 interface StyledButtonProps {
+  // 按鈕樣式
   $mode?: string;
+  // 是否禁用
   disabled?: boolean;
+  // 點擊功能
   onClick?: () => void;
 }
 
@@ -119,7 +122,7 @@ export const StyledButton = styled(Button)<StyledButtonProps>`
   }
 `;
 
-// 依據傳入的 $mode 呈現不同的樣式
+// 定義一個 Wrapper 來包裹 Button 匯出
 const StyledButtonWrapper = ({
   $mode = "primary", // 預設 $mode 來呈現 primary 按鈕
   ...props
