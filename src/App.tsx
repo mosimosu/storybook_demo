@@ -12,6 +12,11 @@ import CustomButton from "./components/CustomButton";
 import { StyledButton } from "./components/StyledButton";
 import { ButtonSize } from "./enums/StyledButton/ButtonSize";
 import { ButtonType } from "./enums/StyledButton/ButtonType";
+import { Delete } from "@mui/icons-material";
+import IconButton from "./components/IconButton";
+import { IconButtonIcon } from "./enums/IconButton/IconButtonIcon";
+import { IconButtonText } from "./enums/IconButton/IconButtonText";
+
 interface ButtonState {
   isDisabled: boolean;
 }
@@ -55,6 +60,17 @@ function App() {
         <h1>Hello, World!</h1>
       </div>
       <ThemeProvider theme={theme}>
+        <Button
+          variant="contained"
+          startIcon={<Delete />}
+          sx={{
+            "& .MuiButton-startIcon": {
+              marginRight: "0px", // 調整這個值來設置間隔
+            },
+          }}
+        >
+          刪除
+        </Button>
         <Box>
           <FormControl sx={{ m: 1, minWidth: 120, bgcolor: "base.white" }}>
             <InputLabel id="demo-simple-select-label">Age</InputLabel>
@@ -120,6 +136,10 @@ function App() {
         >
           按鈕名稱
         </StyledButton>
+        <IconButton
+          IconButtonTexts={IconButtonText.delete}
+          IconButtonIcons={IconButtonIcon.delete}
+        />
       </StyledThemeProvider>
     </>
   );
