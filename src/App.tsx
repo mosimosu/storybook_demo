@@ -16,7 +16,8 @@ import { Delete } from "@mui/icons-material";
 import IconButton from "./components/IconButton";
 import { IconButtonIcon } from "./enums/IconButton/IconButtonIcon";
 import { IconButtonText } from "./enums/IconButton/IconButtonText";
-
+import { StyledPagination, Text } from "./components/Pagination";
+import { Pagination } from "@mui/material";
 interface ButtonState {
   isDisabled: boolean;
 }
@@ -140,6 +141,29 @@ function App() {
           IconButtonTexts={IconButtonText.delete}
           IconButtonIcons={IconButtonIcon.delete}
         />
+        <StyledPagination>
+          <Pagination
+            count={20}
+            page={1}
+            boundaryCount={5}
+            onChange={() => {}}
+            shape="rounded"
+            color="primary"
+          ></Pagination>
+          <Text>
+            <p>共 {"30"} 頁</p>
+            <p>
+              每頁
+              <select>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
+              筆
+            </p>
+            <p>總筆數：{"30"}</p>
+          </Text>
+        </StyledPagination>
       </StyledThemeProvider>
     </>
   );
