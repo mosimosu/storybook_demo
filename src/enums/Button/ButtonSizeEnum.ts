@@ -5,9 +5,8 @@
  * import { SizeType } from "enums/StyledButton/SizeType";
  * console.log(SizeType.small);
  */
-export enum ButtonSize {
+export enum ButtonSizeEnum {
   small = "small",
   medium = "medium",
   large = "large",
-  none = "",
 }

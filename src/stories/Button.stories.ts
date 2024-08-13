@@ -1,52 +1,80 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { Button } from './Button';
+import { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
+import Button from "../components/Button";
+import { ButtonSizeEnum } from "../enums/Button/ButtonSizeEnum";
+import { ButtonTypeEnum } from "../enums/Button/ButtonTypeEnum";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
-  title: 'Example/Button',
+const meta: Meta<typeof Button> = {
+  title: "Component/Button",
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
+    layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  tags: ["autodocs"],
   argTypes: {
-    backgroundColor: { control: 'color' },
+    $mode: {
+      control: "select",
+      options: Object.values(ButtonTypeEnum),
+    },
+    $size: {
+      control: "radio",
+      options: Object.values(ButtonSizeEnum),
+    },
+    $isSelected: { control: "boolean" },
+    disabled: { control: "boolean" },
+    onClick: { action: "clicked" },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+  args: {
+    $mode: ButtonTypeEnum.primary,
+    disabled: false,
+    $isSelected: false,
+    $size: ButtonSizeEnum.medium,
+    onClick: fn(),
+  },
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+type Story = StoryObj<typeof Button>;
+
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    $mode: ButtonTypeEnum.primary,
+    disabled: false,
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    $mode: ButtonTypeEnum.secondary,
+    disabled: false,
   },
 };
 
-export const Large: Story = {
+export const Warning: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
+    $mode: ButtonTypeEnum.warning,
+    disabled: false,
   },
 };
 
-export const Small: Story = {
+export const Alarm: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    $mode: ButtonTypeEnum.alarm,
+    disabled: false,
+  },
+};
+
+export const OutlinePrimary: Story = {
+  args: {
+    $mode: ButtonTypeEnum.outlinePrimary,
+    disabled: false,
+  },
+};
+
+export const OutlineSecondary: Story = {
+  args: {
+    $mode: ButtonTypeEnum.outlineSecondary,
+    disabled: false,
   },
 };

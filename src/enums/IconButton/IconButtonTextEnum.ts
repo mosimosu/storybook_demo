@@ -5,7 +5,7 @@
  * import {IconButtonText} from './enums/IconButton/IconButtonText'
  * console.log(ButtonText.read) // '閱讀'
  */
-export enum IconButtonText {
+export enum IconButtonTextEnum {
   read = "閱讀",
   signature = "簽章資訊",
   version = "版次",

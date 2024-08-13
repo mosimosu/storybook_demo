@@ -3,19 +3,19 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Button } from "@mui/material";
+import { Button as MuiButton } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import CustomButton from "./components/CustomButton";
+import { Delete } from "@mui/icons-material";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "./theme";
-import CustomButton from "./components/CustomButton";
-import { StyledButton } from "./components/StyledButton";
-import { ButtonSize } from "./enums/StyledButton/ButtonSize";
-import { ButtonType } from "./enums/StyledButton/ButtonType";
-import { Delete } from "@mui/icons-material";
+import Button from "./components/Button";
+import { ButtonSizeEnum } from "./enums/Button/ButtonSizeEnum";
+import { ButtonTypeEnum } from "./enums/Button/ButtonTypeEnum";
 import IconButton from "./components/IconButton";
-import { IconButtonIcon } from "./enums/IconButton/IconButtonIcon";
-import { IconButtonText } from "./enums/IconButton/IconButtonText";
+import { IconButtonIcon } from "./components/IconButton/IconButtonIcon";
+import { IconButtonTextEnum } from "./enums/IconButton/IconButtonTextEnum";
 import { StyledPagination, Text } from "./components/Pagination";
 import { Pagination } from "@mui/material";
 interface ButtonState {
@@ -37,7 +37,7 @@ function App() {
       {} as Record<string, ButtonState>
     )
   );
-  const handleDisabledary = (name: string) => {
+  const handleDisable = (name: string) => {
     setButtonStates((prevState) => ({
       ...prevState,
       [name]: { isDisabled: !prevState[name].isDisabled },
@@ -60,7 +60,7 @@ function App() {
       <div style={{ textAlign: "center" }}>
         <h1>Hello, World!</h1>
       </div>
-      <ThemeProvider theme={theme}>
+      {/* {<ThemeProvider theme={theme}>
         <Button
           variant="contained"
           startIcon={<Delete />}
@@ -110,35 +110,39 @@ function App() {
           isDisabled={isDisabled}
         ></CustomButton>
         <CustomButton label="我是另外一顆按鈕，完全沒有傳入樣式參數"></CustomButton>
-      </ThemeProvider>
+      </ThemeProvider>} */}
       <StyledThemeProvider theme={theme}>
-        <StyledButton
-          $mode={ButtonType.primary}
+        <Button
+          name="按鈕名稱"
+          $mode={ButtonTypeEnum.primary}
+          $size={ButtonSizeEnum.medium}
+          $isSelected={isSelected}
           disabled={isDisabled}
           onClick={handleDisabled}
-        >
-          按鈕名稱
-        </StyledButton>
+        />
+
         {buttonNames.map((name, index) => (
-          <StyledButton
-            $mode={name as ButtonType}
+          <Button
+            name={name}
+            $mode={name as ButtonTypeEnum}
+            $size={ButtonSizeEnum.medium}
+            $isSelected={false}
             disabled={buttonStates[name].isDisabled}
-            onClick={() => handleDisabledary(name)}
+            onClick={() => handleDisable(name)}
             key={index}
-          >
-            {name}
-          </StyledButton>
+          />
         ))}
-        <StyledButton
-          $mode={ButtonType.outlinePrimary}
-          onClick={handleSelected}
+        <Button
+          name="按鈕名稱"
+          $mode={ButtonTypeEnum.primary}
+          $size={ButtonSizeEnum.medium}
           $isSelected={isSelected}
-          $size={ButtonSize.small}
-        >
-          按鈕名稱
-        </StyledButton>
+          disabled={isDisabled}
+          onClick={handleDisabled}
+        />
+
         <IconButton
-          IconButtonTexts={IconButtonText.delete}
+          IconButtonTexts={IconButtonTextEnum.delete}
           IconButtonIcons={IconButtonIcon.delete}
         />
         <StyledPagination>
@@ -165,6 +169,14 @@ function App() {
           </Text>
         </StyledPagination>
       </StyledThemeProvider>
+      <Button
+        name="按鈕名稱"
+        $mode={ButtonTypeEnum.primary}
+        $size={ButtonSizeEnum.medium}
+        $isSelected={isSelected}
+        disabled={isDisabled}
+        onClick={handleDisabled}
+      />
     </>
   );
 }
