@@ -18,17 +18,19 @@ import QuickEdit from "../../assets/images/icons/quickEdit.svg?react";
  * @example
  * import {IconButtonIcon} from './enums/IconButton/ButtonIcon'
  */
-export const IconButtonIcon = {
-  read: (props: React.SVGProps<SVGSVGElement>) => Read(props),
-  signature: (props: React.SVGProps<SVGSVGElement>) => Signature(props),
-  version: (props: React.SVGProps<SVGSVGElement>) => Version(props),
-  delete: (props: React.SVGProps<SVGSVGElement>) => Delete(props),
-  details: (props: React.SVGProps<SVGSVGElement>) => Details(props),
-  copy: (props: React.SVGProps<SVGSVGElement>) => Copy(props),
-  reply: (props: React.SVGProps<SVGSVGElement>) => Reply(props),
-  view: (props: React.SVGProps<SVGSVGElement>) => View(props),
-  edit: (props: React.SVGProps<SVGSVGElement>) => Edit(props),
-  save: (props: React.SVGProps<SVGSVGElement>) => Save(props),
-  cancel: (props: React.SVGProps<SVGSVGElement>) => Cancel(props),
-  quickEdit: (props: React.SVGProps<SVGSVGElement>) => QuickEdit(props),
+const icons = {
+  Read,
+  Signature,
+  Version,
+  Delete,
+  Details,
+  Copy,
+  Reply,
+  View,
+  Edit,
+  Save,
+  Cancel,
+  QuickEdit,
 };
+
+export default icons;
