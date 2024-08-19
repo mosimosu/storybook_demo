@@ -99,7 +99,7 @@ const theme = createTheme({
       fontSize: "1.125rem",
       lineHeight: "1.75rem",
     },
-    textXlarge: {
+    textXLarge: {
       fontSize: "1.25rem",
       lineHeight: "1.75rem",
     },
