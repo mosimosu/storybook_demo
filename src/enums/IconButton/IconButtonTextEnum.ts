@@ -18,4 +18,6 @@ export enum IconButtonTextEnum {
   save = "儲存",
   cancel = "取消",
   quickEdit = "快速修改",
+  export = "匯出",
+  add = "新增",
 }
