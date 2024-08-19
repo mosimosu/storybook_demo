@@ -1,23 +1,20 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import { Button as MuiButton } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import CustomButton from "./components/CustomButton";
-import { Delete } from "@mui/icons-material";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { ThemeProvider } from "@mui/system";
+import { SelectChangeEvent } from "@mui/material/Select";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "./theme";
 import Button from "./components/Button";
 import { ButtonSizeEnum } from "./enums/Button/ButtonSizeEnum";
 import { ButtonTypeEnum } from "./enums/Button/ButtonTypeEnum";
 import IconButton from "./components/IconButton";
-import { IconButtonIcon } from "./components/IconButton/IconButtonIcon";
+import icons from "./components/IconButton/IconButtonIcon";
 import { IconButtonTextEnum } from "./enums/IconButton/IconButtonTextEnum";
 import { StyledPagination, Text } from "./components/Pagination";
 import { Pagination } from "@mui/material";
+import Read from "./assets/images/icons/read.svg?react";
+import ReadIcon from "./assets/images/icons/read.svg";
+import StyledButton from "./components/MuiStyledButton";
+
 interface ButtonState {
   isDisabled: boolean;
 }
@@ -60,57 +57,6 @@ function App() {
       <div style={{ textAlign: "center" }}>
         <h1>Hello, World!</h1>
       </div>
-      {/* {<ThemeProvider theme={theme}>
-        <Button
-          variant="contained"
-          startIcon={<Delete />}
-          sx={{
-            "& .MuiButton-startIcon": {
-              marginRight: "0px", // 調整這個值來設置間隔
-            },
-          }}
-        >
-          刪除
-        </Button>
-        <Box>
-          <FormControl sx={{ m: 1, minWidth: 120, bgcolor: "base.white" }}>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-              sx={{ color: "base.black" }}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-        <Button
-          variant="contained"
-          disabled={isDisabled}
-          onClick={handleDisabled}
-        >
-          Submit
-        </Button>
-        <CustomButton
-          label="Primary"
-          color="base.white"
-          bgColor="blue.700"
-          borderColor="blue.600"
-          borderWidth="1px"
-          borderStyle="solid"
-          borderRadius="4px"
-          hover="blue.600"
-          pressed="blue.800"
-          disabled="gray.300"
-          isDisabled={isDisabled}
-        ></CustomButton>
-        <CustomButton label="我是另外一顆按鈕，完全沒有傳入樣式參數"></CustomButton>
-      </ThemeProvider>} */}
       <StyledThemeProvider theme={theme}>
         <Button
           name="按鈕名稱"
@@ -139,11 +85,6 @@ function App() {
           $isSelected={isSelected}
           disabled={isDisabled}
           onClick={handleDisabled}
-        />
-
-        <IconButton
-          IconButtonTexts={IconButtonTextEnum.delete}
-          IconButtonIcons={IconButtonIcon.delete}
         />
         <StyledPagination>
           <Pagination
@@ -177,6 +118,27 @@ function App() {
         disabled={isDisabled}
         onClick={handleDisabled}
       />
+      <IconButton
+        name={IconButtonTextEnum.delete}
+        icon={ReadIcon}
+        tableType="b"
+        disabled={isDisabled}
+      />
+      <div>
+        <Read />
+        <icons.Read />
+      </div>
+      <ThemeProvider theme={theme}>
+        <StyledButton
+          sx={{
+            color: theme.palette.gray[900],
+            fontSize: "20px",
+            fontWeight: "900",
+          }}
+        >
+          <p>I'm a StyledButton</p>
+        </StyledButton>
+      </ThemeProvider>
     </>
   );
 }
