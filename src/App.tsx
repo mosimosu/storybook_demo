@@ -7,12 +7,9 @@ import Button from "./components/Button";
 import { ButtonSizeEnum } from "./enums/Button/ButtonSizeEnum";
 import { ButtonTypeEnum } from "./enums/Button/ButtonTypeEnum";
 import IconButton from "./components/IconButton";
-import icons from "./components/IconButton/IconButtonIcon";
 import { IconButtonTextEnum } from "./enums/IconButton/IconButtonTextEnum";
 import { StyledPagination, Text } from "./components/Pagination";
 import { Pagination } from "@mui/material";
-import Read from "./assets/images/icons/read.svg?react";
-import ReadIcon from "./assets/images/icons/read.svg";
 import StyledButton from "./components/MuiStyledButton";
 
 interface ButtonState {
@@ -118,15 +115,14 @@ function App() {
         disabled={isDisabled}
         onClick={handleDisabled}
       />
-      <IconButton
-        name={IconButtonTextEnum.delete}
-        icon={ReadIcon}
-        tableType="b"
-        disabled={isDisabled}
-      />
+
       <div>
-        <Read />
-        <icons.Read />
+        <IconButton
+          name={IconButtonTextEnum.delete}
+          icon={"delete"}
+          tableType="a"
+          disabled={isDisabled}
+        />
       </div>
       <ThemeProvider theme={theme}>
         <StyledButton
@@ -142,5 +138,4 @@ function App() {
     </>
   );
 }
-
 export default App;
