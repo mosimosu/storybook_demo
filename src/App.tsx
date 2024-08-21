@@ -1,42 +1,44 @@
-import { useState } from "react";
 import { ThemeProvider } from "@mui/system";
-import { SelectChangeEvent } from "@mui/material/Select";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import theme from "./theme";
-import Button from "./components/Button";
-import { ButtonSizeEnum } from "./enums/Button/ButtonSizeEnum";
-import { ButtonTypeEnum } from "./enums/Button/ButtonTypeEnum";
-import IconButton from "./components/IconButton";
-import { IconButtonTextEnum } from "./enums/IconButton/IconButtonTextEnum";
-import { StyledPagination, Text } from "./components/Pagination";
-import { Pagination } from "@mui/material";
-import StyledButton from "./components/MuiStyledButton";
+import { useState } from "react";
+import Button from "@mui/material/Button";
+import { IconButtonIconEnum } from "./enums/IconButton/IconButtonIconEnum";
 
-interface ButtonState {
-  isDisabled: boolean;
-}
+// import { SelectChangeEvent } from "@mui/material/Select";
+// import { ThemeProvider as StyledThemeProvider } from "styled-components";
+// import Button from "./components/Button";
+// import { ButtonSizeEnum } from "./enums/Button/ButtonSizeEnum";
+// import { ButtonTypeEnum } from "./enums/Button/ButtonTypeEnum";
+// import IconButton from "./components/IconButton";
+// import { IconButtonTextEnum } from "./enums/IconButton/IconButtonTextEnum";
+// import { StyledPagination, Text } from "./components/Pagination";
+// import { Pagination } from "@mui/material";
+
+// interface ButtonState {
+//   isDisabled: boolean;
+// }
 function App() {
-  const [age, setAge] = useState("");
+  // const [age, setAge] = useState("");
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
-  const buttonNames = ["primary", "secondary", "warning", "alarm"];
-  const [buttonStates, setButtonStates] = useState<Record<string, ButtonState>>(
-    buttonNames.reduce(
-      (acc, name) => {
-        acc[name] = { isDisabled: false };
-        return acc;
-      },
-      {} as Record<string, ButtonState>
-    )
-  );
-  const handleDisable = (name: string) => {
-    setButtonStates((prevState) => ({
-      ...prevState,
-      [name]: { isDisabled: !prevState[name].isDisabled },
-    }));
-  };
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setAge(event.target.value as string);
+  // };
+  // const buttonNames = ["primary", "secondary", "warning", "alarm"];
+  // const [buttonStates, setButtonStates] = useState<Record<string, ButtonState>>(
+  //   buttonNames.reduce(
+  //     (acc, name) => {
+  //       acc[name] = { isDisabled: false };
+  //       return acc;
+  //     },
+  //     {} as Record<string, ButtonState>
+  //   )
+  // );
+  // const handleDisable = (name: string) => {
+  //   setButtonStates((prevState) => ({
+  //     ...prevState,
+  //     [name]: { isDisabled: !prevState[name].isDisabled },
+  //   }));
+  // };
 
   const [isDisabled, setIsDisabled] = useState(false);
   const handleDisabled = () => {
@@ -51,7 +53,7 @@ function App() {
 
   return (
     <>
-      <div style={{ textAlign: "center" }}>
+      {/* <div style={{ textAlign: "center" }}>
         <h1>Hello, World!</h1>
       </div>
       <StyledThemeProvider theme={theme}>
@@ -114,26 +116,26 @@ function App() {
         $isSelected={isSelected}
         disabled={isDisabled}
         onClick={handleDisabled}
-      />
+      /> */}
 
-      <div>
+      {/* <div>
         <IconButton
           name={IconButtonTextEnum.delete}
           icon={"delete"}
           tableType="a"
           disabled={isDisabled}
         />
-      </div>
+      </div> */}
       <ThemeProvider theme={theme}>
-        <StyledButton
-          sx={{
-            color: theme.palette.gray[900],
-            fontSize: "20px",
-            fontWeight: "900",
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            handleDisabled();
           }}
         >
-          <p>I'm a StyledButton</p>
-        </StyledButton>
+          刪除
+        </Button>
       </ThemeProvider>
     </>
   );
