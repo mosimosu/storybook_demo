@@ -1,7 +1,5 @@
 import type { Preview } from "@storybook/react";
-
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 import theme from "../src/theme";
 
@@ -18,7 +16,7 @@ const preview: Preview = {
   decorators: [
     withThemeFromJSXProvider({
       GlobalStyles: CssBaseline,
-      Provider: StyledThemeProvider,
+      Provider: ThemeProvider,
       themes: { theme },
     }),
   ],
