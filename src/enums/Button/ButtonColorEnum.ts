@@ -1,15 +1,13 @@
 /**
- * 按鈕樣式列舉
+ * 按鈕顏色列舉
  * @enum {string}
  * @example
  * import { ButtonTypeEnum } from "enums/Button/ButtonTypeEnum";
  * console.log(ButtonTypeEnum.Primary);
  */
-export enum ButtonTypeEnum {
+export enum ButtonColorEnum {
   Primary = "primary",
   Secondary = "secondary",
+  Error = "error",
   Warning = "warning",
-  Alarm = "alarm",
-  OutlinePrimary = "outline-primary",
-  OutlineSecondary = "outline-secondary",
 }
