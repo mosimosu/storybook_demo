@@ -2,19 +2,21 @@ import { Button as MuiButton } from "@mui/material";
 import styled, { css } from "styled-components";
 import { ButtonSizeEnum } from "../../enums/Button/ButtonSizeEnum";
 import { ButtonTypeEnum } from "../../enums/Button/ButtonTypeEnum";
+import { ThemeProvider } from "styled-components";
+import theme from "../../theme";
 
 // Button 的 interface
 interface StyledButtonProps {
   // 按鈕名稱
   name: string;
   // 按鈕樣式
-  $mode: ButtonTypeEnum;
+  mode: ButtonTypeEnum;
   // 是否禁用
   disabled: boolean;
   // 大小
-  $size: keyof typeof ButtonSizeEnum;
+  size: ButtonSizeEnum;
   // 是否選取
-  $isSelected: boolean;
+  isSelected: boolean;
   // 點擊功能
   onClick?: () => void;
 }
@@ -198,7 +200,7 @@ const outlineSecondaryStyle = css`
 
 // 根據傳入的 props 設定 Button 的樣式
 const getButtonStyle = (props: StyledButtonProps) => {
-  switch (props.$mode) {
+  switch (props.mode) {
     case ButtonTypeEnum.Primary:
       return primaryStyle;
     case ButtonTypeEnum.Secondary:
@@ -217,32 +219,31 @@ const getButtonStyle = (props: StyledButtonProps) => {
 };
 
 // 使用 styled-components 覆寫 Button
-export const Button = styled(MuiButton)<StyledButtonProps>`
+const StyledButton = styled(MuiButton)<StyledButtonProps>`
   && {
     ${(props) => getButtonStyle(props)}
   }
 `;
 
-// 定義一個 Wrapper 來包裹 Button 匯出
-const StyledButtonWrapper = ({
-  $mode = ButtonTypeEnum.Primary, // 預設 $mode 來呈現 primary 按鈕
-  $size = "Medium", // 預設 $size 來呈現 medium 按鈕
-  $isSelected = false, // 預設 $isSelected 來呈現未被選中
+// 封裝給外部使用的 Button
+const Button = ({
+  mode = ButtonTypeEnum.Primary, // 預設 $mode 來呈現 primary 按鈕
+  size = ButtonSizeEnum.Medium, // 預設 $size 來呈現 medium 按鈕
+  isSelected = false, // 預設 $isSelected 來呈現未被選中
   name = "按鈕名稱", // 預設 $name 來呈現按鈕名稱
   ...props // 其他 props
-}: StyledButtonProps) => {
-  // 是否被選中
-  return (
-    <Button
+}: StyledButtonProps) => (
+  <ThemeProvider theme={theme}>
+    <StyledButton
       name={name}
-      $mode={$mode}
-      $size={$size}
-      $isSelected={$isSelected}
+      mode={mode}
+      size={size}
+      isSelected={isSelected}
       {...props}
     >
       {name}
-    </Button>
-  );
-};
+    </StyledButton>
+  </ThemeProvider>
+);
 
-export default StyledButtonWrapper;
+export default Button;
