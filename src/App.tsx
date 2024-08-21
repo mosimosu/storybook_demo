@@ -1,7 +1,8 @@
 import { ThemeProvider } from "@mui/system";
 import theme from "./theme";
 import { useState } from "react";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
+import Button from "./components/Button";
 import { IconButtonIconEnum } from "./enums/IconButton/IconButtonIconEnum";
 
 // import { SelectChangeEvent } from "@mui/material/Select";
@@ -53,71 +54,6 @@ function App() {
 
   return (
     <>
-      {/* <div style={{ textAlign: "center" }}>
-        <h1>Hello, World!</h1>
-      </div>
-      <StyledThemeProvider theme={theme}>
-        <Button
-          name="按鈕名稱"
-          $mode={ButtonTypeEnum.primary}
-          $size={ButtonSizeEnum.medium}
-          $isSelected={isSelected}
-          disabled={isDisabled}
-          onClick={handleDisabled}
-        />
-
-        {buttonNames.map((name, index) => (
-          <Button
-            name={name}
-            $mode={name as ButtonTypeEnum}
-            $size={ButtonSizeEnum.medium}
-            $isSelected={false}
-            disabled={buttonStates[name].isDisabled}
-            onClick={() => handleDisable(name)}
-            key={index}
-          />
-        ))}
-        <Button
-          name="按鈕名稱"
-          $mode={ButtonTypeEnum.primary}
-          $size={ButtonSizeEnum.medium}
-          $isSelected={isSelected}
-          disabled={isDisabled}
-          onClick={handleDisabled}
-        />
-        <StyledPagination>
-          <Pagination
-            count={20}
-            page={1}
-            boundaryCount={5}
-            onChange={() => {}}
-            shape="rounded"
-            color="primary"
-          ></Pagination>
-          <Text>
-            <p>共 {"30"} 頁</p>
-            <p>
-              每頁
-              <select>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-              </select>
-              筆
-            </p>
-            <p>總筆數：{"30"}</p>
-          </Text>
-        </StyledPagination>
-      </StyledThemeProvider>
-      <Button
-        name="按鈕名稱"
-        $mode={ButtonTypeEnum.primary}
-        $size={ButtonSizeEnum.medium}
-        $isSelected={isSelected}
-        disabled={isDisabled}
-        onClick={handleDisabled}
-      /> */}
-
       {/* <div>
         <IconButton
           name={IconButtonTextEnum.delete}
@@ -128,13 +64,14 @@ function App() {
       </div> */}
       <ThemeProvider theme={theme}>
         <Button
-          variant="contained"
+          variant="outlined"
           color="secondary"
-          onClick={() => {
-            handleDisabled();
-          }}
+          isSelected={isSelected}
+          disabled={isDisabled}
+          onClick={handleDisabled}
+          size="medium"
         >
-          刪除
+          閱讀
         </Button>
       </ThemeProvider>
     </>
