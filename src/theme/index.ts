@@ -48,6 +48,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          minWidth: "fit-content",
           "&:hover": {
             backgroundColor: Palette.Grey300,
           },
@@ -57,6 +58,21 @@ const theme = createTheme({
           "&.Mui-disabled": {
             backgroundColor: Palette.Grey400,
           },
+        },
+        sizeSmall: {
+          // 小型按鈕的樣式
+          padding: "0.25rem 0.5rem",
+          fontSize: "0.8125rem",
+        },
+        sizeMedium: {
+          // 中型按鈕的樣式
+          padding: "0.5rem 1rem",
+          fontSize: "1rem",
+        },
+        sizeLarge: {
+          // 大型按鈕的樣式
+          padding: "0.75rem 1.5rem",
+          fontSize: "1.25rem",
         },
         containedPrimary: {
           "&:hover": {
