@@ -31,6 +31,105 @@ const theme = createTheme({
       dark: Palette.Red600,
       contrastText: Palette.White,
     },
+    grey: {
+      50: Palette.Grey50,
+      100: Palette.Grey100,
+      200: Palette.Grey200,
+      300: Palette.Grey300,
+      400: Palette.Grey400,
+      500: Palette.Grey500,
+      600: Palette.Grey600,
+      700: Palette.Grey700,
+      800: Palette.Grey800,
+      900: Palette.Grey900,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            backgroundColor: Palette.Grey300,
+          },
+          "&:active": {
+            backgroundColor: Palette.Grey500,
+          },
+          "&.Mui-disabled": {
+            backgroundColor: Palette.Grey400,
+          },
+        },
+        containedPrimary: {
+          "&:hover": {
+            backgroundColor: Palette.Blue500,
+          },
+          "&:active": {
+            backgroundColor: Palette.Blue700,
+          },
+          "&.Mui-disabled": {
+            backgroundColor: Palette.Grey400,
+          },
+        },
+        containedSecondary: {
+          "&:hover": {
+            backgroundColor: Palette.Blue300,
+          },
+          "&:active": {
+            backgroundColor: Palette.Blue400,
+          },
+          "&.Mui-disabled": {
+            backgroundColor: Palette.Grey400,
+          },
+        },
+        containedError: {
+          "&:hover": {
+            backgroundColor: Palette.Red500,
+          },
+          "&:active": {
+            backgroundColor: Palette.Red700,
+          },
+          "&.Mui-disabled": {
+            backgroundColor: Palette.Grey400,
+          },
+        },
+        containedWarning: {
+          "&:hover": {
+            backgroundColor: Palette.Yellow500,
+          },
+          "&:active": {
+            backgroundColor: Palette.Yellow600,
+          },
+          "&.Mui-disabled": {
+            backgroundColor: Palette.Grey400,
+          },
+        },
+        outlinedPrimary: {
+          "&:hover": {
+            borderColor: Palette.Blue500,
+          },
+          "&:active": {
+            borderColor: Palette.Blue700,
+          },
+          "&.Mui-disabled": {
+            borderColor: Palette.Grey400,
+          },
+        },
+        outlinedSecondary: {
+          color: Palette.Grey300,
+          textColor: Palette.Black,
+          borderColor: Palette.Grey300,
+          "&:hover": {
+            borderColor: Palette.Grey300,
+          },
+          "&:active": {
+            borderColor: Palette.Grey300,
+            backgroundColor: Palette.Grey200,
+          },
+          "&.Mui-disabled": {
+            borderColor: Palette.Grey300,
+          },
+        },
+      },
+    },
   },
 });
 
