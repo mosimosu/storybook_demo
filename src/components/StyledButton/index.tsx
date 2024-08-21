@@ -1,7 +1,7 @@
 import { Button as MuiButton } from "@mui/material";
 import styled, { css } from "styled-components";
 import { ButtonSizeEnum } from "../../enums/Button/ButtonSizeEnum";
-import { ButtonTypeEnum } from "../../enums/Button/ButtonTypeEnum";
+import { ButtonVariantEnum } from "../../enums/Button/ButtonVariantEnum";
 import { ThemeProvider } from "styled-components";
 import theme from "../../theme";
 
@@ -10,7 +10,7 @@ interface StyledButtonProps {
   // 按鈕名稱
   name: string;
   // 按鈕樣式
-  mode: ButtonTypeEnum;
+  mode: ButtonVariantEnum;
   // 是否禁用
   disabled: boolean;
   // 大小
@@ -24,7 +24,7 @@ interface StyledButtonProps {
 // 共同設定 props
 interface CommonSettingProps {
   // 按鈕樣式
-  $mode?: keyof typeof ButtonTypeEnum;
+  $mode?: keyof typeof ButtonVariantEnum;
   // 大小
   $size?: keyof typeof ButtonSizeEnum;
 }

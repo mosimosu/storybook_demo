@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { styled } from "@mui/system";
-import { ButtonTypeEnum } from "../../enums/Button/ButtonTypeEnum"; // 確保這個路徑是正確的
-import { ButtonSizeEnum } from "../../enums/Button/ButtonSizeEnum"; // 確保這個路徑是正確的
+import { ButtonColorEnum } from "../../enums/Button/ButtonColorEnum";
+import { ButtonSizeEnum } from "../../enums/Button/ButtonSizeEnum";
 import { Palette } from "../../enums/Theme/paletteEnum";
 
 // Button 的 interface
@@ -9,7 +9,7 @@ interface StyledButtonProps {
   // 按鈕名稱
   name: string;
   // 按鈕樣式
-  mode: keyof typeof ButtonTypeEnum;
+  mode: keyof typeof ButtonColorEnum;
   // 是否禁用
   disabled: boolean;
   // 大小
@@ -24,7 +24,7 @@ interface StyledButtonProps {
 
 // 共同設定 props
 interface CommonSettingProps {
-  mode: keyof typeof ButtonTypeEnum; // 按鈕樣式
+  mode: keyof typeof ButtonColorEnum; // 按鈕樣式
   size: keyof typeof ButtonSizeEnum; // 大小
 }
 
