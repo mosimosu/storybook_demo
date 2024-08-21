@@ -201,17 +201,17 @@ const outlineSecondaryStyle = css`
 // 根據傳入的 props 設定 Button 的樣式
 const getButtonStyle = (props: StyledButtonProps) => {
   switch (props.$mode) {
-    case ButtonTypeEnum.primary:
+    case ButtonTypeEnum.Primary:
       return primaryStyle;
-    case ButtonTypeEnum.secondary:
+    case ButtonTypeEnum.Secondary:
       return secondaryStyle;
-    case ButtonTypeEnum.warning:
+    case ButtonTypeEnum.Warning:
       return warningStyle;
-    case ButtonTypeEnum.alarm:
+    case ButtonTypeEnum.Alarm:
       return alarmStyle;
-    case ButtonTypeEnum.outlinePrimary:
+    case ButtonTypeEnum.OutlinePrimary:
       return outlinePrimaryStyle;
-    case ButtonTypeEnum.outlineSecondary:
+    case ButtonTypeEnum.OutlineSecondary:
       return outlineSecondaryStyle;
     default:
       return primaryStyle;
@@ -227,8 +227,8 @@ const StyledButton = styled(MuiButton)<StyledButtonProps>`
 
 // 封裝給外部使用的 Button
 const Button = ({
-  $mode = ButtonTypeEnum.primary, // 預設 $mode 來呈現 primary 按鈕
-  $size = ButtonSizeEnum.medium, // 預設 $size 來呈現 medium 按鈕
+  $mode = ButtonTypeEnum.Primary, // 預設 $mode 來呈現 primary 按鈕
+  $size = ButtonSizeEnum.Medium, // 預設 $size 來呈現 medium 按鈕
   $isSelected = false, // 預設 $isSelected 來呈現未被選中
   name = "按鈕名稱", // 預設 $name 來呈現按鈕名稱
   ...props // 其他 props
