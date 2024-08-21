@@ -63,10 +63,11 @@ const theme = createTheme({
             backgroundColor: Palette.Blue500,
           },
           "&:active": {
-            backgroundColor: Palette.Blue700,
+            backgroundColor: Palette.Blue400,
           },
           "&.Mui-disabled": {
-            backgroundColor: Palette.Grey400,
+            backgroundColor: Palette.Grey300,
+            color: Palette.White,
           },
         },
         containedSecondary: {
@@ -77,7 +78,8 @@ const theme = createTheme({
             backgroundColor: Palette.Blue400,
           },
           "&.Mui-disabled": {
-            backgroundColor: Palette.Grey400,
+            backgroundColor: Palette.Grey300,
+            color: Palette.White,
           },
         },
         containedError: {
@@ -88,7 +90,8 @@ const theme = createTheme({
             backgroundColor: Palette.Red700,
           },
           "&.Mui-disabled": {
-            backgroundColor: Palette.Grey400,
+            backgroundColor: Palette.Grey300,
+            color: Palette.White,
           },
         },
         containedWarning: {
@@ -99,7 +102,8 @@ const theme = createTheme({
             backgroundColor: Palette.Yellow600,
           },
           "&.Mui-disabled": {
-            backgroundColor: Palette.Grey400,
+            backgroundColor: Palette.Grey300,
+            color: Palette.White,
           },
         },
         outlinedPrimary: {
@@ -114,8 +118,7 @@ const theme = createTheme({
           },
         },
         outlinedSecondary: {
-          color: Palette.Grey300,
-          textColor: Palette.Black,
+          color: Palette.Black,
           borderColor: Palette.Grey300,
           "&:hover": {
             borderColor: Palette.Grey300,
