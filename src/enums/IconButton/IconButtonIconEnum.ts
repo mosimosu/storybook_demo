@@ -11,7 +11,8 @@ import EditSVG from "../../assets/images/icons/edit_square.svg?react";
 import SaveSVG from "../../assets/images/icons/save.svg?react";
 import CancelSVG from "../../assets/images/icons/cancel.svg?react";
 import QuickEditSVG from "../../assets/images/icons/quickEdit.svg?react";
-
+import ExportSVG from "../../assets/images/icons/export.svg?react";
+import AddSVG from "../../assets/images/icons/add_circle_large.svg?react";
 /**
  *按鈕圖示列舉
  * @example
@@ -30,4 +31,6 @@ export const IconButtonIconEnum = {
   save: SaveSVG,
   cancel: CancelSVG,
   quickEdit: QuickEditSVG,
+  export: ExportSVG,
+  add: AddSVG,
 };
