@@ -1,65 +1,55 @@
-import { Button } from "@mui/material";
-import styled, { ThemeProvider, css } from "styled-components";
-import theme from "../../theme";
-import { IconButtonTextEnum } from "../../enums/IconButton/IconButtonTextEnum";
+import {
+  Button as MuiButton,
+  ButtonProps as MuiButtonProps,
+} from "@mui/material";
+
 import { IconButtonIconEnum } from "../../enums/IconButton/IconButtonIconEnum";
+import { IconButtonTextEnum } from "../../enums/IconButton/IconButtonTextEnum";
+import { IconButtonColorEnum } from "../../enums/IconButton/IconButtonColorEnum";
+import { IconButtonTableTypeEnum } from "../../enums/IconButton/IconButtonTableTypeEnum";
+import { Palette } from "../../enums/Theme/paletteEnum";
 
-// 定義 IconButton 的 props
-interface IconButtonProps {
-  // 按鈕名稱
-  name?: string;
-  // 按鈕圖示
+type IconButtonColor = keyof typeof IconButtonColorEnum;
+type IconButtonTable = keyof typeof IconButtonTableTypeEnum;
+
+interface IconButtonProps extends Omit<MuiButtonProps, "color"> {
   icon: keyof typeof IconButtonIconEnum;
-  // 是否禁用
-  disabled: boolean;
-  // Table 類型
-  tableType: string;
-  // 其他屬性
-  props?: [key: string];
-  // 點擊功能
-  onClick?: () => void;
+  text: keyof typeof IconButtonTextEnum;
+  color: IconButtonColor;
+  table?: IconButtonTable;
 }
 
-interface TextProps {
-  tableType: string;
-}
-const textStyle = css<TextProps>`
-  ${(props) => props.theme.typography?.textMedium}
-  color: ${(props) => {
-    switch (props.tableType) {
-      case "a":
-        return props.theme.palette.blue[400];
-      case "b":
-        return props.theme.palette.base.black;
-      default:
-        return props.theme.palette.blue[400];
-    }
-  }}
-`;
-
-// 定義 IconButton 的樣式
-export const StyledIconButton = styled(Button)<TextProps>`
-  ${textStyle};
-  display: flex;
-  align-items: center;
-  gap: 4px;
-`;
-
-// 定義一個 Wrapper 來封裝 IconButton 匯出到 storybook
 const IconButton = ({
-  name = IconButtonTextEnum.read,
-  icon = "read",
-  tableType = "a",
-  disabled = false,
+  icon,
+  text,
+  color,
+  table,
+  ...props
 }: IconButtonProps): JSX.Element => {
-  const IconComponent = IconButtonIconEnum[icon];
+  const Icon = IconButtonIconEnum[icon];
+  const name = IconButtonTextEnum[text];
+  const colors = IconButtonColorEnum[color];
+  const tables = table ? IconButtonTableTypeEnum[table] : undefined;
+
   return (
-    <ThemeProvider theme={theme}>
-      <StyledIconButton disabled={disabled} tableType={tableType}>
-        <IconComponent title={name} />
-        {name}
-      </StyledIconButton>
-    </ThemeProvider>
+    <MuiButton
+      color={colors}
+      startIcon={<Icon />}
+      variant="icon"
+      disableRipple={true}
+      sx={{
+        color:
+          color === "Success"
+            ? Palette.Green500
+            : tables === "a" && color === "Primary"
+              ? Palette.Blue500
+              : Palette.Black,
+      }}
+      {...props}
+    >
+      {name}
+    </MuiButton>
   );
 };
+
 export default IconButton;
