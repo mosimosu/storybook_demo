@@ -2,7 +2,7 @@ import { ThemeProvider } from "@mui/system";
 import theme from "./theme";
 import { useState } from "react";
 import Button from "./components/Button";
-import { IconButtonIconEnum } from "./enums/IconButton/IconButtonIconEnum";
+import IconButton from "./components/IconButton";
 
 function App() {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -22,14 +22,43 @@ function App() {
         <Button
           variant="contained"
           color="primary"
-          isSelected={isSelected}
-          disabled={isDisabled}
           size="medium"
-          startIcon={<IconButtonIconEnum.delete />}
           onClick={handleDisabled}
         >
-          刪除
+          無效
         </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          isSelected={isSelected}
+          size="medium"
+          onClick={handleSelected}
+        >
+          選取
+        </Button>
+        <IconButton
+          icon="export"
+          color="Success"
+          disabled={isDisabled}
+          onClick={handleDisabled}
+          text="export"
+        />
+        <IconButton
+          icon="view"
+          color="Primary"
+          table="A"
+          disabled={isDisabled}
+          onClick={handleDisabled}
+          text="view"
+        />
+        <IconButton
+          icon="view"
+          color="Primary"
+          table="B"
+          disabled={isDisabled}
+          onClick={handleDisabled}
+          text="view"
+        />
       </ThemeProvider>
     </>
   );
