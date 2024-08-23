@@ -1,8 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import IconButton from "../components/IconButton";
-import { IconButtonIconEnum } from "../enums/IconButton/IconButtonIconEnum";
+
 import { IconButtonTextEnum } from "../enums/IconButton/IconButtonTextEnum";
 import { IconButtonColorEnum } from "../enums/IconButton/IconButtonColorEnum";
+import { IconButtonTableTypeEnum } from "../enums/IconButton/IconButtonTableTypeEnum";
+
 const meta: Meta<typeof IconButton> = {
   title: "Component/IconButton",
   component: IconButton,
@@ -11,13 +13,9 @@ const meta: Meta<typeof IconButton> = {
   },
   tags: ["autodocs"],
   argTypes: {
-    icon: {
-      control: "select",
-      options: Object.keys(IconButtonIconEnum),
-    },
     color: {
       control: "radio",
-      options: Object.values(IconButtonColorEnum),
+      options: Object.keys(IconButtonColorEnum),
     },
 
     disabled: {
@@ -31,12 +29,17 @@ const meta: Meta<typeof IconButton> = {
       control: { disable: true },
       description: "按鈕樣式",
     },
+    table: {
+      control: "radio",
+      options: Object.keys(IconButtonTableTypeEnum),
+    },
   },
   args: {
-    icon: "delete",
     variant: "icon",
     text: "delete",
     disabled: false,
+    color: "Primary",
+    table: "A",
   },
 };
 
@@ -46,9 +49,8 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Primary: Story = {
   args: {
-    color: "success",
+    color: "Primary",
     variant: "icon",
-    icon: "delete",
     text: "delete",
   },
 };
