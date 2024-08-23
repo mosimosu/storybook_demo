@@ -20,16 +20,17 @@ interface IconButtonProps extends Omit<MuiButtonProps, "color"> {
 }
 
 const IconButton = ({
-  icon,
   text,
   color,
   table,
   ...props
-}: IconButtonProps): JSX.Element => {
-  const Icon = IconButtonIconEnum[icon];
+}: Omit<IconButtonProps, "icon">): JSX.Element => {
   const name = IconButtonTextEnum[text];
   const colors = IconButtonColorEnum[color];
   const tables = table ? IconButtonTableTypeEnum[table] : undefined;
+
+  // 根據 text 來選擇對應的 icon
+  const Icon = IconButtonIconEnum[text];
 
   return (
     <MuiButton
@@ -44,6 +45,9 @@ const IconButton = ({
             : tables === "a" && color === "Primary"
               ? Palette.Blue500
               : Palette.Black,
+        "& span": {
+          marginRight: "4px",
+        },
       }}
       {...props}
     >
