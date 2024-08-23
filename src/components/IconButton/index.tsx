@@ -46,8 +46,9 @@ const IconButton = ({
               ? Palette.Blue500
               : Palette.Black,
         "& span": {
-          marginRight: "4px",
+          marginRight: text === "loading" ? "12px" : "4px",
         },
+        border: text === "loading" ? "2px solid #D4D4D8" : "none",
       }}
       {...props}
     >
