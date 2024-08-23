@@ -25,7 +25,7 @@ function App() {
           size="medium"
           onClick={handleDisabled}
         >
-          無效
+          {isDisabled ? "無效" : "有效"}
         </Button>
         <Button
           variant="outlined"
@@ -34,17 +34,15 @@ function App() {
           size="medium"
           onClick={handleSelected}
         >
-          選取
+          {isSelected ? "選取" : "未選取"}
         </Button>
         <IconButton
-          icon="export"
           color="Success"
           disabled={isDisabled}
           onClick={handleDisabled}
           text="export"
         />
         <IconButton
-          icon="view"
           color="Primary"
           table="A"
           disabled={isDisabled}
@@ -52,12 +50,11 @@ function App() {
           text="view"
         />
         <IconButton
-          icon="view"
           color="Primary"
           table="B"
           disabled={isDisabled}
           onClick={handleDisabled}
-          text="view"
+          text="copy"
         />
       </ThemeProvider>
     </>
