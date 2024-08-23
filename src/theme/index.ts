@@ -62,6 +62,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           minWidth: "fit-content",
+          borderRadius: "6px",
           "&:hover": {
             backgroundColor: Palette.Grey300,
           },
