@@ -56,6 +56,13 @@ function App() {
           onClick={handleDisabled}
           text="copy"
         />
+        <IconButton
+          color="Primary"
+          table="B"
+          disabled={isDisabled}
+          onClick={handleDisabled}
+          text="loading"
+        />
       </ThemeProvider>
     </>
   );
