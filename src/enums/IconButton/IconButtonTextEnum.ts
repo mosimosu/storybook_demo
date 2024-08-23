@@ -20,4 +20,5 @@ export enum IconButtonTextEnum {
   quickEdit = "快速修改",
   export = "匯出",
   add = "新增",
+  loading = "讀取",
 }

@@ -13,6 +13,7 @@ import CancelSVG from "../../assets/images/icons/cancel.svg?react";
 import QuickEditSVG from "../../assets/images/icons/quickEdit.svg?react";
 import ExportSVG from "../../assets/images/icons/export.svg?react";
 import AddSVG from "../../assets/images/icons/add_circle_large.svg?react";
+import LoadingSVG from "../../assets/images/icons/refresh-2.svg?react";
 /**
  *按鈕圖示列舉
  * @example
@@ -33,4 +34,5 @@ export const IconButtonIconEnum = {
   quickEdit: QuickEditSVG,
   export: ExportSVG,
   add: AddSVG,
+  loading: LoadingSVG,
 };
