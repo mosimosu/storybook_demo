@@ -5,8 +5,14 @@ import Button from "./components/Button";
 import IconButton from "./components/IconButton";
 import Pagination from "./components/Pagination";
 
+type dataType = {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+};
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([] as dataType[]);
   const [isDisabled, setIsDisabled] = useState(false);
   const handleDisabled = () => {
     // 這裡可以根據你的邏輯來設置 isDisabled 的值
@@ -35,7 +41,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetchData({ page: 2, pageSize: 10 });
+    fetchData({ page: 1, pageSize: 10 });
   }, []);
 
   return (
@@ -90,9 +96,9 @@ function App() {
           totalSize={20}
           onPageOnChange={(page, pageSize) => fetchData({ page, pageSize })}
         />
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <div key={item.id} style={{ display: "flex", gap: 8 }}>
-            <p style={{ color: "red", fontWeight: "" }}>{index + 1}</p>
+            <p style={{ color: "red", fontWeight: "900" }}>{index + 1}</p>
             <p>{item.title}</p>
           </div>
         ))}
