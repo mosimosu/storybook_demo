@@ -1,10 +1,12 @@
 import { ThemeProvider } from "@mui/system";
 import theme from "./theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./components/Button";
 import IconButton from "./components/IconButton";
+import Pagination from "./components/Pagination";
 
 function App() {
+  const [data, setData] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
   const handleDisabled = () => {
     // 這裡可以根據你的邏輯來設置 isDisabled 的值
@@ -15,6 +17,26 @@ function App() {
     // 這裡可以根據你的邏輯來設置 isSelected 的值
     setIsSelected(!isSelected);
   };
+
+  const fetchData = ({
+    page,
+    pageSize,
+  }: {
+    page: number;
+    pageSize: number;
+  }) => {
+    fetch(
+      `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${pageSize}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json);
+      });
+  };
+
+  useEffect(() => {
+    fetchData({ page: 2, pageSize: 10 });
+  }, []);
 
   return (
     <>
@@ -63,6 +85,17 @@ function App() {
           onClick={handleDisabled}
           text="loading"
         />
+        <Pagination
+          totalPageSize={10}
+          totalSize={20}
+          onPageOnChange={(page, pageSize) => fetchData({ page, pageSize })}
+        />
+        {data.map((item, index) => (
+          <div key={item.id} style={{ display: "flex", gap: 8 }}>
+            <p style={{ color: "red", fontWeight: "" }}>{index + 1}</p>
+            <p>{item.title}</p>
+          </div>
+        ))}
       </ThemeProvider>
     </>
   );

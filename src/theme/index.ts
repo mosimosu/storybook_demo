@@ -211,6 +211,20 @@ const theme = createTheme({
         },
       ],
     },
+    MuiPagination: {
+      styleOverrides: {
+        root: {
+          "& .MuiPaginationItem-root": {
+            backgroundColor: "transparent",
+            borderColor: Palette.Grey300,
+            "&.Mui-selected": {
+              borderColor: Palette.Blue600,
+              backgroundColor: "transparent",
+            },
+          },
+        },
+      },
+    },
   },
 });
 
