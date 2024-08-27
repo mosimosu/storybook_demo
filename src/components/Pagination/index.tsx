@@ -8,7 +8,6 @@ interface PaginationProps extends MuiPaginationProps {
     totalPageSize: number; // 總頁數
     totalSize: number; // 總筆數
     onPageOnChange: (pageNum: number, pageSize: number) => void; // 點擊頁碼
-    // onPageSizeChange: (pageSize: number) => void; // 點擊每頁筆數
 }
 
 const Pagination = ({
@@ -34,6 +33,7 @@ const Pagination = ({
     const handlePageSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newPageSize = parseInt(e.target.value);
         setPageSize(newPageSize);
+        setCurrentPage(1);
         onPageOnChange(currentPage, newPageSize);
     };
 
@@ -62,6 +62,7 @@ const Pagination = ({
                 defaultPage={1}
                 {...props}
                 onChange={(_, page) => handlePageChange(page)}
+                page={currentPage}
             />
             <div style={outerStyle}>
                 <p>共 {totalPageSize} 頁</p>
