@@ -24,15 +24,18 @@ const Pagination = ({
     // 每頁筆數可選項
     const defaultPageSizeArray = [10, 20, 30, 40, 50];
 
+    // 更新目前頁數
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        onPageOnChange(page, pageSize);
+    };
+
+    // 更新每頁筆數
     const handlePageSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newPageSize = parseInt(e.target.value);
         setPageSize(newPageSize);
-        setCurrentPage(1);
+        onPageOnChange(currentPage, newPageSize);
     };
-
-    useEffect(() => {
-        onPageOnChange(currentPage, pageSize);
-    }, [currentPage, onPageOnChange, pageSize]);
 
     // 外層樣式
     const outerStyle = {
@@ -58,7 +61,7 @@ const Pagination = ({
                 siblingCount={0}
                 defaultPage={1}
                 {...props}
-                onChange={(_, page) => setCurrentPage(page)}
+                onChange={(_, page) => handlePageChange(page)}
             />
             <div style={outerStyle}>
                 <p>共 {totalPageSize} 頁</p>
