@@ -32,25 +32,34 @@ const IconButton = ({
     // 根據 text 來選擇對應的 icon
     const Icon = IconButtonIconEnum[text];
 
+    //條件樣式
+    const style = {
+        color:
+            color === "Success"
+                ? Palette.Green500
+                : tables === "a" && color === "Primary"
+                  ? Palette.Blue500
+                  : Palette.Black,
+        "& span": {
+            marginRight: text === "loading" ? "12px" : "4px",
+        },
+        border: text === "loading" ? "2px solid #D4D4D8" : "none",
+    };
+
+    // 組合 MUI Button 的 sx 屬性和外部傳入的 sx 屬性
+    const totalStyle = {
+        ...style,
+        ...props.sx,
+    };
+
     return (
         <MuiButton
             color={colors}
             startIcon={<Icon />}
             variant="icon"
             disableRipple={true}
-            sx={{
-                color:
-                    color === "Success"
-                        ? Palette.Green500
-                        : tables === "a" && color === "Primary"
-                          ? Palette.Blue500
-                          : Palette.Black,
-                "& span": {
-                    marginRight: text === "loading" ? "12px" : "4px",
-                },
-                border: text === "loading" ? "2px solid #D4D4D8" : "none",
-            }}
             {...props}
+            sx={totalStyle}
         >
             {name}
         </MuiButton>
