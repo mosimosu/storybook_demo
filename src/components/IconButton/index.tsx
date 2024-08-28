@@ -1,6 +1,6 @@
 import {
-  Button as MuiButton,
-  ButtonProps as MuiButtonProps,
+    Button as MuiButton,
+    ButtonProps as MuiButtonProps,
 } from "@mui/material";
 
 import { IconButtonIconEnum } from "../../enums/IconButton/IconButtonIconEnum";
@@ -13,48 +13,48 @@ type IconButtonColor = keyof typeof IconButtonColorEnum;
 type IconButtonTable = keyof typeof IconButtonTableTypeEnum;
 
 interface IconButtonProps extends Omit<MuiButtonProps, "color"> {
-  icon: keyof typeof IconButtonIconEnum;
-  text: keyof typeof IconButtonTextEnum;
-  color: IconButtonColor;
-  table?: IconButtonTable;
+    icon: keyof typeof IconButtonIconEnum;
+    text: keyof typeof IconButtonTextEnum;
+    color: IconButtonColor;
+    table?: IconButtonTable;
 }
 
 const IconButton = ({
-  text,
-  color,
-  table,
-  ...props
+    text,
+    color,
+    table,
+    ...props
 }: Omit<IconButtonProps, "icon">): JSX.Element => {
-  const name = IconButtonTextEnum[text];
-  const colors = IconButtonColorEnum[color];
-  const tables = table ? IconButtonTableTypeEnum[table] : undefined;
+    const name = IconButtonTextEnum[text];
+    const colors = IconButtonColorEnum[color];
+    const tables = table ? IconButtonTableTypeEnum[table] : undefined;
 
-  // 根據 text 來選擇對應的 icon
-  const Icon = IconButtonIconEnum[text];
+    // 根據 text 來選擇對應的 icon
+    const Icon = IconButtonIconEnum[text];
 
-  return (
-    <MuiButton
-      color={colors}
-      startIcon={<Icon />}
-      variant="icon"
-      disableRipple={true}
-      sx={{
-        color:
-          color === "Success"
-            ? Palette.Green500
-            : tables === "a" && color === "Primary"
-              ? Palette.Blue500
-              : Palette.Black,
-        "& span": {
-          marginRight: text === "loading" ? "12px" : "4px",
-        },
-        border: text === "loading" ? "2px solid #D4D4D8" : "none",
-      }}
-      {...props}
-    >
-      {name}
-    </MuiButton>
-  );
+    return (
+        <MuiButton
+            color={colors}
+            startIcon={<Icon />}
+            variant="icon"
+            disableRipple={true}
+            sx={{
+                color:
+                    color === "Success"
+                        ? Palette.Green500
+                        : tables === "a" && color === "Primary"
+                          ? Palette.Blue500
+                          : Palette.Black,
+                "& span": {
+                    marginRight: text === "loading" ? "12px" : "4px",
+                },
+                border: text === "loading" ? "2px solid #D4D4D8" : "none",
+            }}
+            {...props}
+        >
+            {name}
+        </MuiButton>
+    );
 };
 
 export default IconButton;
