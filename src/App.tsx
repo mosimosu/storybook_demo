@@ -6,6 +6,7 @@ import IconButton from "./components/IconButton";
 import Pagination from "./components/Pagination";
 import ComboText from "./components/ComboText";
 import { ComboColorEnum } from "./enums/ComboText/ComboColorEnum";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 
 type dataType = {
     id: number;
@@ -16,6 +17,7 @@ type dataType = {
 function App() {
     const [data, setData] = useState([] as dataType[]);
     const [isDisabled, setIsDisabled] = useState(false);
+
     const handleDisabled = () => {
         // 這裡可以根據你的邏輯來設置 isDisabled 的值
         setIsDisabled(!isDisabled);
@@ -97,23 +99,37 @@ function App() {
                             color="Success"
                             disabled={isDisabled}
                             onClick={handleDisabled}
-                            text="export"
+                            text="匯出"
+                            defaultIcon="export"
                         />
                         <IconButton
                             color="Primary"
                             table="A"
                             disabled={isDisabled}
                             onClick={handleDisabled}
-                            text="view"
+                            text="閱讀"
+                            defaultIcon="view"
                         />
                         <IconButton
                             color="Success"
                             table="A"
                             disabled={isDisabled}
                             onClick={handleDisabled}
-                            text="copy"
+                            text="複製"
+                            defaultIcon="copy"
                         />
-                        <IconButton color="Primary" table="B" text="loading" />
+                        <IconButton
+                            color="Primary"
+                            table="B"
+                            text="讀取"
+                            defaultIcon="loading"
+                        />
+                        <IconButton
+                            color="Primary"
+                            table="A"
+                            text="提醒"
+                            icon={AccessAlarmIcon}
+                        />
                     </div>
                 </section>
                 <section style={{ display: "flex", flexDirection: "column" }}>
