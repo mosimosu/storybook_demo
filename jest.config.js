@@ -1,5 +1,5 @@
-module.exports = {
-    testEnvironment: "jsdom",
+export default {
+    testEnvironment: "jest-environment-jsdom",
     transform: {
         "^.+\\.tsx?$": "vite-jest",
     },
