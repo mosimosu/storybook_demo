@@ -2,8 +2,6 @@ import {
     Button as MuiButton,
     ButtonProps as MuiButtonProps,
 } from "@mui/material";
-
-
 import { IconButtonIconEnum } from "../../enums/IconButton/IconButtonIconEnum";
 import { IconButtonColorEnum } from "../../enums/IconButton/IconButtonColorEnum";
 import { IconButtonTableTypeEnum } from "../../enums/IconButton/IconButtonTableTypeEnum";
@@ -14,7 +12,7 @@ type IconButtonTable = keyof typeof IconButtonTableTypeEnum;
 
 interface IconButtonProps extends Omit<MuiButtonProps, "color"> {
     text: string;
-    icon?: string;
+    icon?: any;
     defaultIcon?: string;
     color: IconButtonColor;
     table?: IconButtonTable;
@@ -71,5 +69,4 @@ const IconButton = ({
         </MuiButton>
     );
 };
-
 export default IconButton;
