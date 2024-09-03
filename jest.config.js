@@ -1,7 +1,7 @@
 export default {
     testEnvironment: "jest-environment-jsdom",
     transform: {
-        "^.+\\.tsx?$": "vite-jest",
+        "^.+\\.tsx?$": ["ts-jest", { tsconfig: { jsx: "react" } }],
     },
     moduleNameMapper: {
         "^@/(.*)$": "<rootDir>/src/$1",
