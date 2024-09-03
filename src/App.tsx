@@ -7,8 +7,9 @@ import Pagination from "./components/Pagination";
 import ComboText from "./components/ComboText";
 import { ComboColorEnum } from "./enums/ComboText/ComboColorEnum";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import TablePagination from "@mui/material/TablePagination";
-
+import { GridColDef } from "@mui/x-data-grid";
+import { AdvancedDataGrid } from "./components/DatagridPagination";
+import { rows } from "./components/DatagridPagination/rowData";
 type dataType = {
     id: number;
     title: string;
@@ -17,7 +18,6 @@ type dataType = {
 };
 function App() {
     const [data, setData] = useState([] as dataType[]);
-    const [data2, setData2] = useState([] as dataType[]);
     const [isDisabled, setIsDisabled] = useState(false);
 
     const handleDisabled = () => {
@@ -46,21 +46,14 @@ function App() {
             });
     };
 
-    const fetchData2 = ({
-        page,
-        pageSize,
-    }: {
-        page: number;
-        pageSize: number;
-    }) => {
-        fetch(
-            `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${pageSize}`
-        )
-            .then((response) => response.json())
-            .then((json) => {
-                setData2(json);
-            });
-    };
+    // 列定義
+    const columns: GridColDef[] = [
+        { field: "id", headerName: "ID", width: 90 },
+        { field: "firstName", headerName: "First name", width: 150 },
+        { field: "lastName", headerName: "Last name", width: 150 },
+        { field: "age", headerName: "Age", type: "number", width: 110 },
+        { field: "status", headerName: "Status", width: 120 },
+    ];
 
     useEffect(() => {
         fetchData({ page: 1, pageSize: 10 });
@@ -212,18 +205,20 @@ function App() {
                         />
                     </div>
                 </section>
+
                 <section>
-                    {data2.map((item) => (
-                        <p key={item.id}>{item.title}</p>
-                    ))}
-                    <TablePagination
-                        component="div"
-                        count={10}
-                        page={1}
-                        onPageChange={(page, pageSize) =>
-                            fetchData2({ page, pageSize })
-                        }
-                        rowsPerPage={10}
+                    <AdvancedDataGrid
+                        rows={rows}
+                        columns={columns}
+                        pageSizeOptions={[5, 10, 25]}
+                        sx={{
+                            height: "400px",
+                        }}
+                        initialState={{
+                            pagination: {
+                                paginationModel: { pageSize: 5, page: 0 },
+                            },
+                        }}
                     />
                 </section>
             </ThemeProvider>
