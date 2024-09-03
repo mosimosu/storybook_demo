@@ -7,6 +7,7 @@ import Pagination from "./components/Pagination";
 import ComboText from "./components/ComboText";
 import { ComboColorEnum } from "./enums/ComboText/ComboColorEnum";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import TablePagination from "@mui/material/TablePagination";
 
 type dataType = {
     id: number;
@@ -16,6 +17,7 @@ type dataType = {
 };
 function App() {
     const [data, setData] = useState([] as dataType[]);
+    const [data2, setData2] = useState([] as dataType[]);
     const [isDisabled, setIsDisabled] = useState(false);
 
     const handleDisabled = () => {
@@ -41,6 +43,22 @@ function App() {
             .then((response) => response.json())
             .then((json) => {
                 setData(json);
+            });
+    };
+
+    const fetchData2 = ({
+        page,
+        pageSize,
+    }: {
+        page: number;
+        pageSize: number;
+    }) => {
+        fetch(
+            `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${pageSize}`
+        )
+            .then((response) => response.json())
+            .then((json) => {
+                setData2(json);
             });
     };
 
@@ -170,7 +188,6 @@ function App() {
                         }
                     />
                 </section>
-
                 <section
                     style={{ display: "flex", gap: 8, flexDirection: "column" }}
                 >
@@ -194,6 +211,20 @@ function App() {
                             color={ComboColorEnum.Break}
                         />
                     </div>
+                </section>
+                <section>
+                    {data2.map((item) => (
+                        <p key={item.id}>{item.title}</p>
+                    ))}
+                    <TablePagination
+                        component="div"
+                        count={10}
+                        page={1}
+                        onPageChange={(page, pageSize) =>
+                            fetchData2({ page, pageSize })
+                        }
+                        rowsPerPage={10}
+                    />
                 </section>
             </ThemeProvider>
         </>
