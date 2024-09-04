@@ -11,7 +11,7 @@ import { Palette } from "../../enums/Theme/paletteEnum";
  * @extends {MuiButtonProps}
  */
 interface ButtonProps extends MuiButtonProps {
-    isSelected?: boolean;
+    text: string;
 }
 
 /**
@@ -21,12 +21,16 @@ interface ButtonProps extends MuiButtonProps {
  * @param isSelected {boolean} 是否選取，預設為 false
  * @return {JSX.Element}
  */
-const Button = ({ isSelected = false, ...props }: ButtonProps): JSX.Element => {
-    // 選取時的樣式
-    const selectedStyle = isSelected && { backgroundColor: Palette.Blue50 };
+const Button = ({
+    // isSelected = false,
+    text = "按鈕",
+    ...props
+}: ButtonProps): JSX.Element => {
+    // // 選取時的樣式
+    // const selectedStyle = isSelected && { backgroundColor: Palette.Blue50 };
     // 組合 MUI Button 的 sx 屬性和外部傳入的 sx 屬性
     const totalStyle = {
-        ...selectedStyle,
+        // ...selectedStyle,
         ...props.sx,
     };
 
@@ -34,10 +38,11 @@ const Button = ({ isSelected = false, ...props }: ButtonProps): JSX.Element => {
         <MuiButton
             variant="contained" // 按鈕樣式，預設為 contained，其他可選擇 text、outlined
             color="primary" // 按鈕顏色，預設為 primary，其他可選擇 success、error、warning、info、secondary、info
-            disableRipple={true} // 停用按鈕點擊效果，預設為 true
             {...props}
             sx={totalStyle}
-        />
+        >
+            {text}
+        </MuiButton>
     );
 };
 export default Button;
