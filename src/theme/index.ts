@@ -92,6 +92,7 @@ const theme = createTheme(
                         },
                         "&.Mui-disabled": {
                             borderColor: alpha("#111111", 0.15),
+                            color: Palette.Grey500,
                         },
                     },
                     textPrimary: {
@@ -110,6 +111,7 @@ const theme = createTheme(
                         },
                         "&.Mui-disabled": {
                             borderColor: alpha("#111111", 0.15),
+                            color: Palette.Grey500,
                         },
                     },
                 },
