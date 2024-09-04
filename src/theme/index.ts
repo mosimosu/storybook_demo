@@ -1,14 +1,6 @@
 import { createTheme, alpha } from "@mui/material/styles";
 import { Palette } from "../enums/Theme/paletteEnum";
 import { zhTW } from "@mui/material/locale";
-import { ButtonPropsVariantOverrides } from "@mui/material/Button";
-
-// 定義 Button 的 variant
-declare module "@mui/material/Button" {
-    interface ButtonPropsVariantOverrides {
-        icon: true;
-    }
-}
 
 const theme = createTheme(
     {
@@ -24,9 +16,9 @@ const theme = createTheme(
                 contrastText: Palette.White,
             },
             secondary: {
-                main: Palette.Blue200,
-                light: Palette.Blue300,
-                dark: Palette.Blue400,
+                main: Palette.Grey200,
+                light: Palette.Grey100,
+                dark: Palette.Grey500,
                 contrastText: Palette.Black,
             },
             warning: {
@@ -64,155 +56,63 @@ const theme = createTheme(
             MuiButton: {
                 styleOverrides: {
                     root: {
-                        minWidth: "fit-content",
                         borderRadius: "6px",
-                        "&:hover": {
-                            backgroundColor: Palette.Grey300,
-                        },
-                        "&:active": {
-                            backgroundColor: Palette.Grey500,
-                        },
-                        "&.Mui-disabled": {
-                            backgroundColor: Palette.Grey400,
-                        },
-                    },
-                    sizeSmall: {
-                        // 小型按鈕的樣式
-                        padding: "0.25rem 0.5rem",
-                        fontSize: "0.8125rem",
-                    },
-                    sizeMedium: {
-                        // 中型按鈕的樣式
-                        padding: "0.5rem 1rem",
-                        fontSize: "1rem",
-                    },
-                    sizeLarge: {
-                        // 大型按鈕的樣式
-                        padding: "0.75rem 1.5rem",
-                        fontSize: "1.25rem",
                     },
                     containedPrimary: {
-                        "&:hover": {
-                            backgroundColor: Palette.Blue500,
-                        },
-                        "&:active": {
-                            backgroundColor: Palette.Blue400,
-                        },
                         "&.Mui-disabled": {
-                            backgroundColor: Palette.Grey300,
                             color: Palette.White,
                         },
                     },
                     containedSecondary: {
-                        "&:hover": {
-                            backgroundColor: Palette.Blue300,
-                        },
-                        "&:active": {
-                            backgroundColor: Palette.Blue400,
-                        },
                         "&.Mui-disabled": {
-                            backgroundColor: Palette.Grey300,
-                            color: Palette.White,
-                        },
-                    },
-                    containedError: {
-                        "&:hover": {
-                            backgroundColor: Palette.Red500,
-                        },
-                        "&:active": {
-                            backgroundColor: Palette.Red700,
-                        },
-                        "&.Mui-disabled": {
-                            backgroundColor: Palette.Grey300,
-                            color: Palette.White,
-                        },
-                    },
-                    containedWarning: {
-                        "&:hover": {
-                            backgroundColor: Palette.Yellow500,
-                        },
-                        "&:active": {
-                            backgroundColor: Palette.Yellow600,
-                        },
-                        "&.Mui-disabled": {
-                            backgroundColor: Palette.Grey300,
                             color: Palette.White,
                         },
                     },
                     outlinedPrimary: {
+                        borderColor: Palette.Blue600,
+                        boxShadow:
+                            "0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)",
                         "&:hover": {
                             borderColor: Palette.Blue500,
-                        },
-                        "&:active": {
-                            borderColor: Palette.Blue700,
+                            boxShadow: "none",
                         },
                         "&.Mui-disabled": {
-                            borderColor: Palette.Grey400,
+                            color: Palette.Grey500,
                         },
                     },
                     outlinedSecondary: {
                         color: Palette.Black,
-                        borderColor: Palette.Grey300,
+                        borderColor: Palette.Grey600,
+                        boxShadow:
+                            "0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)",
                         "&:hover": {
-                            borderColor: Palette.Grey300,
-                        },
-                        "&:active": {
-                            borderColor: Palette.Grey300,
-                            backgroundColor: Palette.Grey200,
+                            borderColor: Palette.Grey600,
+                            backgroundColor: alpha("#000000", 0.05),
+                            boxShadow: "none",
                         },
                         "&.Mui-disabled": {
-                            borderColor: Palette.Grey300,
+                            borderColor: alpha("#111111", 0.15),
+                        },
+                    },
+                    textPrimary: {
+                        "&:hover": {
+                            borderColor: Palette.Blue500,
+                        },
+                        "&.Mui-disabled": {
+                            color: Palette.Grey500,
+                        },
+                    },
+                    textSecondary: {
+                        color: Palette.Black,
+                        "&:hover": {
+                            borderColor: Palette.Grey600,
+                            backgroundColor: alpha("#000000", 0.05),
+                        },
+                        "&.Mui-disabled": {
+                            borderColor: alpha("#111111", 0.15),
                         },
                     },
                 },
-                variants: [
-                    {
-                        props: {
-                            variant: "icon",
-                        },
-                        style: {
-                            "&:disabled": {
-                                color: Palette.Grey300,
-                                backgroundColor: "transparent",
-                            },
-                            "&:hover": {
-                                backgroundColor: Palette.Grey200,
-                            },
-                            "&:active": {
-                                backgroundColor: "transparent",
-                            },
-                            "&.Mui-focusVisible": {
-                                border: "1px solid",
-                                borderColor: Palette.Blue600,
-                                borderRadius: "0",
-                            },
-                        },
-                    },
-                    {
-                        props: {
-                            variant: "icon",
-                            color: "success",
-                        },
-                        style: {
-                            color: Palette.Green500,
-                            "&:active": {
-                                color: Palette.Green700,
-                            },
-                        },
-                    },
-                    {
-                        props: {
-                            variant: "icon",
-                            color: "primary",
-                        },
-                        style: {
-                            color: Palette.Blue600,
-                            "&:active": {
-                                color: Palette.Blue700,
-                            },
-                        },
-                    },
-                ],
             },
             MuiPagination: {
                 styleOverrides: {
