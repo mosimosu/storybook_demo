@@ -57,6 +57,7 @@ const theme = createTheme(
                 styleOverrides: {
                     root: {
                         borderRadius: "6px",
+                        "& span.MuiButton-startIcon": { marginRight: "0px" },
                     },
                     containedPrimary: {
                         "&.Mui-disabled": {
