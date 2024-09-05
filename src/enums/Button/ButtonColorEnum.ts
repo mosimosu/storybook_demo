@@ -6,8 +6,9 @@
  * console.log(ButtonTypeEnum.Primary);
  */
 export enum ButtonColorEnum {
-  Primary = "primary",
-  Secondary = "secondary",
-  Error = "error",
-  Warning = "warning",
+    Primary = "primary",
+    Secondary = "secondary",
+    Success = "success",
+    Error = "error",
+    Warning = "warning",
 }
