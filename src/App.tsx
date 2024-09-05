@@ -8,6 +8,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 function App() {
     const [isDisabled, setIsDisabled] = useState(false);
+    const sizeAry = ["small", "medium", "large"].reverse();
 
     const handleDisabled = () => {
         // 這裡可以根據你的邏輯來設置 isDisabled 的值
@@ -77,6 +78,19 @@ function App() {
                         />
                     </div>
                     <div>
+                        <h6 style={{ fontSize: "18px" }}>Success</h6>
+                        {sizeAry.map((size) => (
+                            <Button
+                                variant="contained"
+                                color="success"
+                                size={size as "small" | "medium" | "large"}
+                                onClick={handleDisabled}
+                                disabled={isDisabled}
+                                text={isDisabled ? "無效" : "有效"}
+                            />
+                        ))}
+                    </div>
+                    <div>
                         <h6
                             style={{
                                 fontSize: "18px",
@@ -131,6 +145,19 @@ function App() {
                             onClick={handleDisabled}
                             text={isDisabled ? "無效" : "有效"}
                         />
+                    </div>
+                    <div>
+                        <h6 style={{ fontSize: "18px" }}>Outlined Success</h6>
+                        {sizeAry.map((size) => (
+                            <Button
+                                variant="outlined"
+                                color="success"
+                                size={size as "small" | "medium" | "large"}
+                                onClick={handleDisabled}
+                                disabled={isDisabled}
+                                text={isDisabled ? "無效" : "有效"}
+                            />
+                        ))}
                     </div>
                     <div>
                         <h6
@@ -188,6 +215,19 @@ function App() {
                             text={isDisabled ? "無效" : "有效"}
                         />
                     </div>
+                    <div>
+                        <h6 style={{ fontSize: "18px" }}>text Success</h6>
+                        {sizeAry.map((size) => (
+                            <Button
+                                variant="text"
+                                color="success"
+                                size={size as "small" | "medium" | "large"}
+                                onClick={handleDisabled}
+                                disabled={isDisabled}
+                                text={isDisabled ? "無效" : "有效"}
+                            />
+                        ))}
+                    </div>
                 </section>
 
                 <section
@@ -200,10 +240,9 @@ function App() {
                     <h3 style={{ fontSize: "24px" }}>IconButton</h3>
 
                     <div>
-                        <h6>icon button</h6>
                         <Button
                             color="primary"
-                            text="按鈕"
+                            text="定時"
                             variant="text"
                             startIcon={<AccessAlarmIcon />}
                         />
@@ -212,43 +251,6 @@ function App() {
                             text="新增"
                             variant="text"
                             startIcon={<AddCircleOutlineIcon />}
-                        />
-                    </div>
-                    <div style={{ display: "flex", gap: "8px" }}>
-                        <IconButton
-                            color="Success"
-                            disabled={isDisabled}
-                            onClick={handleDisabled}
-                            text="匯出"
-                            defaultIcon="export"
-                        />
-                        <IconButton
-                            color="Primary"
-                            table="A"
-                            disabled={isDisabled}
-                            onClick={handleDisabled}
-                            text="閱讀"
-                            defaultIcon="view"
-                        />
-                        <IconButton
-                            color="Success"
-                            table="A"
-                            disabled={isDisabled}
-                            onClick={handleDisabled}
-                            text="複製"
-                            defaultIcon="copy"
-                        />
-                        <IconButton
-                            color="Primary"
-                            table="B"
-                            text="讀取"
-                            defaultIcon="loading"
-                        />
-                        <IconButton
-                            color="Primary"
-                            table="A"
-                            text="提醒"
-                            icon={AccessAlarmIcon}
                         />
                     </div>
                 </section>
