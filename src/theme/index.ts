@@ -96,6 +96,20 @@ const theme = createTheme(
                             color: Palette.Grey500,
                         },
                     },
+                    outlinedSuccess: {
+                        borderColor: Palette.Green500,
+                        boxShadow:
+                            "0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)",
+                        "&:hover": {
+                            borderColor: Palette.Green500,
+                            backgroundColor: alpha(Palette.Green500, 0.05),
+                            boxShadow: "none",
+                        },
+                        "&.Mui-disabled": {
+                            borderColor: alpha("#111111", 0.15),
+                            color: Palette.Grey500,
+                        },
+                    },
                     textPrimary: {
                         "&:hover": {
                             borderColor: Palette.Blue500,
@@ -109,6 +123,16 @@ const theme = createTheme(
                         "&:hover": {
                             borderColor: Palette.Grey600,
                             backgroundColor: alpha("#000000", 0.05),
+                        },
+                        "&.Mui-disabled": {
+                            borderColor: alpha("#111111", 0.15),
+                            color: Palette.Grey500,
+                        },
+                    },
+                    textSuccess: {
+                        "&:hover": {
+                            borderColor: Palette.Green500,
+                            backgroundColor: alpha(Palette.Green500, 0.05),
                         },
                         "&.Mui-disabled": {
                             borderColor: alpha("#111111", 0.15),
