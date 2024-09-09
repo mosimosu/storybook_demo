@@ -2,7 +2,6 @@ import {
     Button as MuiButton,
     ButtonProps as MuiButtonProps,
 } from "@mui/material";
-import { Palette } from "../../enums/Theme/paletteEnum";
 
 /**
  * Button 元件屬性 extends MUI Button 屬性
