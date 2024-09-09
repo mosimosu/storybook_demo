@@ -1,7 +1,8 @@
 import {
     Button as MuiButton,
     ButtonProps as MuiButtonProps,
-    styled
+    styled,
+    alpha
 } from '@mui/material'
 
 /**
@@ -34,6 +35,34 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
             boxShadow: 'none'
         },
         '&.Mui-disabled': {
+            color: theme.palette.grey[500]
+        }
+    },
+    '.MuiButton-outlinedSecondary': {
+        color: theme.palette.common.black,
+        borderColor:theme.palette.grey[600],
+        boxShadow:'0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
+        '&:hover': {
+            borderColor: theme.palette.grey[600],
+            backgroundColor: alpha(theme.palette.common.black, 0.05),
+            boxShadow: 'none'
+        },
+        '&.Mui-disabled': {
+            borderColor: alpha('#111111', 0.15),
+            color: theme.palette.grey[500]
+        }
+    },
+    '.MuiButton-outlineSuccess':{
+        borderColor: theme.palette.success.main,
+        boxShadow:
+            '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
+        '&:hover': {
+            borderColor: theme.palette.success.main,
+            backgroundColor: alpha(theme.palette.success.main, 0.05),
+            boxShadow: 'none'
+        },
+        '&.Mui-disabled': {
+            borderColor: alpha('#111111', 0.15),
             color: theme.palette.grey[500]
         }
     }

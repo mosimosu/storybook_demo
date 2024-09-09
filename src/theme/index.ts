@@ -69,47 +69,47 @@ const theme = createTheme(
                     //         color: Palette.White
                     //     }
                     // },
-                    outlinedPrimary: {
-                        borderColor: Palette.Blue600,
-                        boxShadow:
-                            '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
-                        '&:hover': {
-                            borderColor: Palette.Blue500,
-                            boxShadow: 'none'
-                        },
-                        '&.Mui-disabled': {
-                            color: Palette.Grey500
-                        }
-                    },
-                    outlinedSecondary: {
-                        color: Palette.Black,
-                        borderColor: Palette.Grey600,
-                        boxShadow:
-                            '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
-                        '&:hover': {
-                            borderColor: Palette.Grey600,
-                            backgroundColor: alpha('#000000', 0.05),
-                            boxShadow: 'none'
-                        },
-                        '&.Mui-disabled': {
-                            borderColor: alpha('#111111', 0.15),
-                            color: Palette.Grey500
-                        }
-                    },
-                    outlinedSuccess: {
-                        borderColor: Palette.Green500,
-                        boxShadow:
-                            '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
-                        '&:hover': {
-                            borderColor: Palette.Green500,
-                            backgroundColor: alpha(Palette.Green500, 0.05),
-                            boxShadow: 'none'
-                        },
-                        '&.Mui-disabled': {
-                            borderColor: alpha('#111111', 0.15),
-                            color: Palette.Grey500
-                        }
-                    },
+                    // outlinedPrimary: {
+                    //     borderColor: Palette.Blue600,
+                    //     boxShadow:
+                    //         '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
+                    //     '&:hover': {
+                    //         borderColor: Palette.Blue500,
+                    //         boxShadow: 'none'
+                    //     },
+                    //     '&.Mui-disabled': {
+                    //         color: Palette.Grey500
+                    //     }
+                    // },
+                    // outlinedSecondary: {
+                    //     color: Palette.Black,
+                    //     borderColor: Palette.Grey600,
+                    //     boxShadow:
+                    //         '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
+                    //     '&:hover': {
+                    //         borderColor: Palette.Grey600,
+                    //         backgroundColor: alpha('#000000', 0.05),
+                    //         boxShadow: 'none'
+                    //     },
+                    //     '&.Mui-disabled': {
+                    //         borderColor: alpha('#111111', 0.15),
+                    //         color: Palette.Grey500
+                    //     }
+                    // },
+                    // outlinedSuccess: {
+                    //     borderColor: Palette.Green500,
+                    //     boxShadow:
+                    //         '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
+                    //     '&:hover': {
+                    //         borderColor: Palette.Green500,
+                    //         backgroundColor: alpha(Palette.Green500, 0.05),
+                    //         boxShadow: 'none'
+                    //     },
+                    //     '&.Mui-disabled': {
+                    //         borderColor: alpha('#111111', 0.15),
+                    //         color: Palette.Grey500
+                    //     }
+                    // },
                     textPrimary: {
                         '&:hover': {
                             borderColor: Palette.Blue500
