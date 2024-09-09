@@ -1,4 +1,3 @@
-import { BorderColor } from "@mui/icons-material";
 import {
   Button as MuiButton,
   ButtonProps as MuiButtonProps,
@@ -17,17 +16,17 @@ interface ButtonProps extends MuiButtonProps {
 }
 
 const StyledButton = styled(MuiButton)(({ theme }) => ({
-  ".MuiButton-containedPrimary": {
+  "&.MuiButton-containedPrimary": {
     "&.Mui-disabled": {
       color: theme.palette.common.white,
     },
   },
-  ".MuiButton-containedSecondary": {
+  "&.MuiButton-containedSecondary": {
     "&.Mui-disabled": {
       color: theme.palette.common.white,
     },
   },
-  ".MuiButton-outlinedPrimary": {
+  "&.MuiButton-outlinedPrimary": {
     borderColor: theme.palette.primary.main,
     boxShadow:
       "0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)",
@@ -39,7 +38,7 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
       color: theme.palette.grey[500],
     },
   },
-  ".MuiButton-outlinedSecondary": {
+  "&.MuiButton-outlinedSecondary": {
     color: theme.palette.common.black,
     borderColor: theme.palette.grey[600],
     boxShadow:
@@ -54,7 +53,7 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
       color: theme.palette.grey[500],
     },
   },
-  ".MuiButton-outlineSuccess": {
+  "&.MuiButton-outlinedSuccess": {
     borderColor: theme.palette.success.main,
     boxShadow:
       "0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)",
@@ -68,13 +67,13 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
       color: theme.palette.grey[500],
     },
   },
-  ".MuiButton-textPrimary": {
+  "&.MuiButton-textPrimary": {
     color: theme.palette.primary.main,
     "&.Mui-disabled": {
       color: theme.palette.grey[500],
     },
   },
-  ".MuiButton-textSecondary": {
+  "&.MuiButton-textSecondary": {
     color: theme.palette.common.black,
     "&:hover": {
       BorderColor: theme.palette.grey[600],
@@ -85,7 +84,7 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
       color: theme.palette.grey[500],
     },
   },
-  ".MuiButton-textSuccess": {
+  "&.MuiButton-textSuccess": {
     color: theme.palette.success.main,
     backgroundColor: alpha(theme.palette.success.main, 0.05),
     "&.Mui-disabled": {
