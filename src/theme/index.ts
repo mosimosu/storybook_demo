@@ -59,16 +59,16 @@ const theme = createTheme(
                         borderRadius: '6px',
                         '& span.MuiButton-startIcon': { marginRight: '0px' }
                     },
-                    containedPrimary: {
-                        '&.Mui-disabled': {
-                            color: Palette.White
-                        }
-                    },
-                    containedSecondary: {
-                        '&.Mui-disabled': {
-                            color: Palette.White
-                        }
-                    },
+                    // containedPrimary: {
+                    //     '&.Mui-disabled': {
+                    //         color: Palette.White
+                    //     }
+                    // },
+                    // containedSecondary: {
+                    //     '&.Mui-disabled': {
+                    //         color: Palette.White
+                    //     }
+                    // },
                     outlinedPrimary: {
                         borderColor: Palette.Blue600,
                         boxShadow:
