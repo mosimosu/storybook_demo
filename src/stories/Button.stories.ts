@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { ButtonSizeEnum } from "../enums/Button/ButtonSizeEnum";
 import { ButtonColorEnum } from "../enums/Button/ButtonColorEnum";
 import { ButtonVariantEnum } from "../enums/Button/ButtonVariantEnum";
+import { ButtonIcon } from "../enums/Button/ButtonIconEnum";
 
 const meta: Meta<typeof Button> = {
     // 設定元件名稱及位置
@@ -18,7 +19,7 @@ const meta: Meta<typeof Button> = {
     // 設定元件控制項
     argTypes: {
         // 按鈕文字
-        children: {
+        text: {
             control: "text",
             description: "按鈕文字",
         },
@@ -27,7 +28,6 @@ const meta: Meta<typeof Button> = {
             control: "radio",
             options: Object.values(ButtonVariantEnum),
             description: "按鈕種類",
-            defaultValue: "contained",
         },
         // 按鈕顏色
         color: {
@@ -36,7 +36,6 @@ const meta: Meta<typeof Button> = {
                 (item) => item !== "warning" && item !== "error"
             ),
             description: "按鈕顏色",
-            defaultValue: "primary",
         },
         // 是否禁用
         disabled: {
@@ -49,18 +48,26 @@ const meta: Meta<typeof Button> = {
             control: "select",
             options: Object.values(ButtonSizeEnum),
             description: "按鈕大小",
-            defaultValue: "medium",
+        },
+
+        // 按鈕圖示
+        startIcon: {
+            control: "select",
+            options: Object.keys(ButtonIcon),
+            mapping: ButtonIcon,
+            description: "按鈕圖示",
         },
     },
     // 設定元件預設值
     args: {
-        children: "按鈕",
+        text: "按鈕",
         variant: "contained",
         color: "primary",
         disabled: false,
         size: "medium",
     },
 };
+
 // 匯出元件
 export default meta;
 
@@ -101,5 +108,24 @@ export const OutlineSecondary: Story = {
         color: "secondary",
         variant: "outlined",
         disabled: false,
+    },
+};
+
+export const OutlineSuccess: Story = {
+    args: {
+        color: "success",
+        variant: "outlined",
+        disabled: false,
+    },
+};
+
+export const IconButton: Story = {
+    args: {
+        color: "primary",
+        variant: "text",
+        disabled: false,
+        size: "medium",
+        startIcon: ButtonIcon.Add,
+        text: "新增",
     },
 };
