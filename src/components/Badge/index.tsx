@@ -6,19 +6,24 @@ interface BadgeProps extends MuiBadgeProps {
     endMargin?: string
 }
 
-const StyledBadge = styled(MuiBadge)<BadgeProps>(
-    ({ children, badgeContent, startMargin, endMargin }) => ({
-        '&.MuiBadge-root': { display: badgeContent ? 'inline-flex' : 'none' },
-        '& .MuiBadge-badge': children
-            ? {}
-            : {
-                  position: 'static',
-                  transform: 'none',
-                  marginRight: endMargin ? startMargin : '0',
-                  marginLeft: startMargin ? endMargin : '0'
-              }
-    })
-)
+const StyledBadge = styled(
+    ({ startMargin, endMargin, ...props }: BadgeProps) => {
+        // Remove unused variables
+        void { startMargin, endMargin }
+
+        return <MuiBadge {...props} />
+    }
+)(({ children, badgeContent, startMargin, endMargin }) => ({
+    '&.MuiBadge-root': { display: badgeContent ? 'inline-flex' : 'none' },
+    '& .MuiBadge-badge': children
+        ? {}
+        : {
+              position: 'static',
+              transform: 'none',
+              marginRight: startMargin || '0',
+              marginLeft: endMargin || '0'
+          }
+}))
 
 const Badge = ({
     startMargin = '0',
