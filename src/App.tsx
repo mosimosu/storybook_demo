@@ -1,99 +1,99 @@
-import { useState } from "react";
-import { ThemeProvider } from "@mui/system";
-import theme from "./theme";
-import Button from "./components/Button";
-import IconButton from "./components/IconButton";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { useState } from 'react'
+import { ThemeProvider } from '@mui/system'
+import theme from './theme'
+import Button from './components/Button'
+import Badge from './components/Badge'
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 
 function App() {
-    const [isDisabled, setIsDisabled] = useState(false);
-    const sizeAry = ["small", "medium", "large"].reverse();
+    const [isDisabled, setIsDisabled] = useState(false)
+    const sizeAry = ['small', 'medium', 'large'].reverse()
 
     const handleDisabled = () => {
         // 這裡可以根據你的邏輯來設置 isDisabled 的值
-        setIsDisabled(!isDisabled);
-    };
+        setIsDisabled(!isDisabled)
+    }
 
     return (
         <>
             <ThemeProvider theme={theme}>
                 <section
                     style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "8px",
-                        marginBottom: "8px",
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px',
+                        marginBottom: '8px'
                     }}
                 >
-                    <h3 style={{ fontSize: "24px" }}>一般 Button</h3>
+                    <h3 style={{ fontSize: '24px' }}>一般 Button</h3>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>Primary</h6>
+                        <h6 style={{ fontSize: '18px' }}>Primary</h6>
                         <Button
                             variant="contained"
                             color="primary"
                             size="large"
                             onClick={handleDisabled}
                             disabled={isDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="contained"
                             color="primary"
                             size="medium"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="contained"
                             color="primary"
                             size="small"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                     </div>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>Secondary</h6>
+                        <h6 style={{ fontSize: '18px' }}>Secondary</h6>
                         <Button
                             variant="contained"
                             color="secondary"
                             size="large"
                             onClick={handleDisabled}
                             disabled={isDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="contained"
                             color="secondary"
                             size="medium"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="contained"
                             color="secondary"
                             size="small"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                     </div>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>Success</h6>
+                        <h6 style={{ fontSize: '18px' }}>Success</h6>
                         {sizeAry.map((size) => (
                             <Button
                                 variant="contained"
                                 color="success"
-                                size={size as "small" | "medium" | "large"}
+                                size={size as 'small' | 'medium' | 'large'}
                                 onClick={handleDisabled}
                                 disabled={isDisabled}
-                                text={isDisabled ? "無效" : "有效"}
+                                text={isDisabled ? '無效' : '有效'}
                             />
                         ))}
                     </div>
                     <div>
                         <h6
                             style={{
-                                fontSize: "18px",
+                                fontSize: '18px'
                             }}
                         >
                             Outlined Primary
@@ -104,65 +104,65 @@ function App() {
                             size="large"
                             onClick={handleDisabled}
                             disabled={isDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="outlined"
                             color="primary"
                             size="medium"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="outlined"
                             color="primary"
                             size="small"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                     </div>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>Outlined Secondary</h6>
+                        <h6 style={{ fontSize: '18px' }}>Outlined Secondary</h6>
                         <Button
                             variant="outlined"
                             color="secondary"
                             size="large"
                             onClick={handleDisabled}
                             disabled={isDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="outlined"
                             color="secondary"
                             size="medium"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="outlined"
                             color="secondary"
                             size="small"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                     </div>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>Outlined Success</h6>
+                        <h6 style={{ fontSize: '18px' }}>Outlined Success</h6>
                         {sizeAry.map((size) => (
                             <Button
                                 variant="outlined"
                                 color="success"
-                                size={size as "small" | "medium" | "large"}
+                                size={size as 'small' | 'medium' | 'large'}
                                 onClick={handleDisabled}
                                 disabled={isDisabled}
-                                text={isDisabled ? "無效" : "有效"}
+                                text={isDisabled ? '無效' : '有效'}
                             />
                         ))}
                     </div>
                     <div>
                         <h6
                             style={{
-                                fontSize: "18px",
+                                fontSize: '18px'
                             }}
                         >
                             text Primary
@@ -173,58 +173,58 @@ function App() {
                             size="large"
                             onClick={handleDisabled}
                             disabled={isDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="text"
                             color="primary"
                             size="medium"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="text"
                             color="primary"
                             size="small"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                     </div>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>text Secondary</h6>
+                        <h6 style={{ fontSize: '18px' }}>text Secondary</h6>
                         <Button
                             variant="text"
                             color="secondary"
                             size="large"
                             onClick={handleDisabled}
                             disabled={isDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="text"
                             color="secondary"
                             size="medium"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                         <Button
                             variant="text"
                             color="secondary"
                             size="small"
                             onClick={handleDisabled}
-                            text={isDisabled ? "無效" : "有效"}
+                            text={isDisabled ? '無效' : '有效'}
                         />
                     </div>
                     <div>
-                        <h6 style={{ fontSize: "18px" }}>text Success</h6>
+                        <h6 style={{ fontSize: '18px' }}>text Success</h6>
                         {sizeAry.map((size) => (
                             <Button
                                 variant="text"
                                 color="success"
-                                size={size as "small" | "medium" | "large"}
+                                size={size as 'small' | 'medium' | 'large'}
                                 onClick={handleDisabled}
                                 disabled={isDisabled}
-                                text={isDisabled ? "無效" : "有效"}
+                                text={isDisabled ? '無效' : '有效'}
                             />
                         ))}
                     </div>
@@ -232,12 +232,12 @@ function App() {
 
                 <section
                     style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "8px",
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px'
                     }}
                 >
-                    <h3 style={{ fontSize: "24px" }}>IconButton</h3>
+                    <h3 style={{ fontSize: '24px' }}>IconButton</h3>
 
                     <div>
                         <Button
@@ -254,8 +254,67 @@ function App() {
                         />
                     </div>
                 </section>
+                <section style={{ display: 'flex', gap: '8px' }}>
+                    <h6 style={{ fontSize: '24px', margin: 0 }}>
+                        Badge Section
+                    </h6>
+                    <label
+                        style={{
+                            backgroundColor: '#2b6cb0',
+                            width: 'fit-content',
+                            borderRadius: '6px'
+                        }}
+                    >
+                        <Button
+                            text="Badge"
+                            variant="contained"
+                            color="primary"
+                            sx={{
+                                boxShadow: 'none'
+                            }}
+                        ></Button>
+                        <Badge
+                            color="error"
+                            badgeContent={1}
+                            max={999}
+                            startMargin={'1rem'}
+                        ></Badge>
+                    </label>
+
+                    <label
+                        style={{
+                            backgroundColor: '#2b6cb0',
+                            width: 'fit-content',
+                            borderRadius: '6px'
+                        }}
+                    >
+                        <Badge
+                            variant="dot"
+                            color="error"
+                            badgeContent={1}
+                            endMargin="1rem"
+                            sx={{
+                                '& .MuiBadge-badge': {
+                                    backgroundColor: 'white'
+                                }
+                            }}
+                        ></Badge>
+                        <Button
+                            text={'badge 1'}
+                            sx={{ boxShadow: 'none' }}
+                        ></Button>
+                    </label>
+
+                    <Badge color="error" badgeContent={100} variant="standard">
+                        <Button
+                            text="Badge 2"
+                            variant="contained"
+                            color="primary"
+                        />
+                    </Badge>
+                </section>
             </ThemeProvider>
         </>
-    );
+    )
 }
-export default App;
+export default App
