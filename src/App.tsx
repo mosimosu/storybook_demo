@@ -5,15 +5,20 @@ import Button from './components/Button'
 import Badge from './components/Badge'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
+// import { AdvancedDataGrid } from './components/DataGridPagination'
+// import { rows } from './components/DataGridPagination/rowData'
+// import { columns } from './components/DataGridPagination/columData'
 
 function App() {
     const [isDisabled, setIsDisabled] = useState(false)
     const sizeAry = ['small', 'medium', 'large'].reverse()
+    const [isUnRead, setIsUnRead] = useState(true)
 
     const handleDisabled = () => {
         // 這裡可以根據你的邏輯來設置 isDisabled 的值
         setIsDisabled(!isDisabled)
     }
+    const handleRead = () => setIsUnRead(!isUnRead)
 
     return (
         <>
@@ -79,7 +84,7 @@ function App() {
                     </div>
                     <div>
                         <h6 style={{ fontSize: '18px' }}>Success</h6>
-                        {sizeAry.map((size) => (
+                        {sizeAry.map((size, index) => (
                             <Button
                                 variant="contained"
                                 color="success"
@@ -87,6 +92,7 @@ function App() {
                                 onClick={handleDisabled}
                                 disabled={isDisabled}
                                 text={isDisabled ? '無效' : '有效'}
+                                key={index}
                             />
                         ))}
                     </div>
@@ -148,7 +154,7 @@ function App() {
                     </div>
                     <div>
                         <h6 style={{ fontSize: '18px' }}>Outlined Success</h6>
-                        {sizeAry.map((size) => (
+                        {sizeAry.map((size, index) => (
                             <Button
                                 variant="outlined"
                                 color="success"
@@ -156,6 +162,7 @@ function App() {
                                 onClick={handleDisabled}
                                 disabled={isDisabled}
                                 text={isDisabled ? '無效' : '有效'}
+                                key={index}
                             />
                         ))}
                     </div>
@@ -217,7 +224,7 @@ function App() {
                     </div>
                     <div>
                         <h6 style={{ fontSize: '18px' }}>text Success</h6>
-                        {sizeAry.map((size) => (
+                        {sizeAry.map((size, index) => (
                             <Button
                                 variant="text"
                                 color="success"
@@ -225,6 +232,7 @@ function App() {
                                 onClick={handleDisabled}
                                 disabled={isDisabled}
                                 text={isDisabled ? '無效' : '有效'}
+                                key={index}
                             />
                         ))}
                     </div>
@@ -285,22 +293,25 @@ function App() {
                         style={{
                             backgroundColor: '#2b6cb0',
                             width: 'fit-content',
-                            borderRadius: '6px'
+                            borderRadius: '6px',
+                            paddingLeft: isUnRead ? '1rem' : 0
                         }}
                     >
-                        <Badge
-                            variant="dot"
-                            color="error"
-                            badgeContent={1}
-                            endMargin="1rem"
-                            sx={{
-                                '& .MuiBadge-badge': {
-                                    backgroundColor: 'white'
-                                }
-                            }}
-                        ></Badge>
+                        {isUnRead && (
+                            <Badge
+                                variant="dot"
+                                color="error"
+                                badgeContent={1}
+                                sx={{
+                                    '& .MuiBadge-badge': {
+                                        backgroundColor: 'white'
+                                    }
+                                }}
+                            ></Badge>
+                        )}
                         <Button
                             text={'badge 1'}
+                            onClick={handleRead}
                             sx={{ boxShadow: 'none' }}
                         ></Button>
                     </label>
@@ -313,6 +324,17 @@ function App() {
                         />
                     </Badge>
                 </section>
+                {/* <section>
+                    <h6 style={{ fontSize: '24px', margin: 0 }}>
+                        DataGrid Section
+                    </h6>
+                    <AdvancedDataGrid
+                        rows={rows}
+                        columns={columns}
+                        pageSizeOptions={[5, 10, 25]}
+                        pagination
+                    />
+                </section> */}
             </ThemeProvider>
         </>
     )
