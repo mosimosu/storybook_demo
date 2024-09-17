@@ -5,6 +5,9 @@ import {
     alpha
 } from '@mui/material'
 
+import * as icons from '../Icons/Icons'
+import { IconEnum } from '../Icons/IconEnum'
+
 /**
  * Button 元件屬性 extends MUI Button 屬性
  *
@@ -14,6 +17,7 @@ import {
 interface ButtonProps extends MuiButtonProps {
     text?: string
     children?: React.ReactNode
+    icon?:IconEnum
 }
 
 const StyledButton = styled(MuiButton)(({ theme }) => ({
@@ -108,6 +112,7 @@ const Button = ({
     // isSelected = false,
     text = '按鈕',
     children,
+    icon,
     ...props
 }: ButtonProps): JSX.Element => {
     // // 選取時的樣式
@@ -117,11 +122,16 @@ const Button = ({
         // ...selectedStyle,
         ...props.sx
     }
+    /** 
+    * mapping Icons
+    */
+    const IconSvg = icon ? icons[icon as keyof typeof icons] : null;
 
     return (
         <StyledButton
             variant="contained" // 按鈕樣式，預設為 contained，其他可選擇 text、outlined
             color="primary" // 按鈕顏色，預設為 primary，其他可選擇 success、error、warning、info、secondary、info
+            startIcon={IconSvg?<IconSvg/>:null}
             {...props}
             sx={totalStyle}
         >
