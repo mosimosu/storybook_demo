@@ -17,9 +17,12 @@ import { IconEnum } from '../Icons/IconEnum'
 interface ButtonProps extends MuiButtonProps {
     text?: string
     children?: React.ReactNode
-    icon?:IconEnum
+    icon?: keyof typeof IconEnum
 }
 
+/** 
+ *  All variants of button style
+ */
 const StyledButton = styled(MuiButton)(({ theme }) => ({
     '&.MuiButton-containedPrimary': {
         '&.Mui-disabled': {
@@ -115,9 +118,10 @@ const Button = ({
     icon,
     ...props
 }: ButtonProps): JSX.Element => {
-    // // 選取時的樣式
-    // const selectedStyle = isSelected && { backgroundColor: Palette.Blue50 };
-    // 組合 MUI Button 的 sx 屬性和外部傳入的 sx 屬性
+    /**  選取時的樣式
+    * const selectedStyle = isSelected && { backgroundColor: Palette.Blue50 };
+    * 組合 MUI Button 的 sx 屬性和外部傳入的 sx 屬性
+    */
     const totalStyle = {
         // ...selectedStyle,
         ...props.sx
