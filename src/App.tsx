@@ -261,6 +261,11 @@ function App() {
                             startIcon={<AddCircleOutlineIcon />}
                         />
                     </div>
+                    <div title={'built-in icon button section'}>
+                        <Button color='success' variant='text' size='large' icon='Add'>人生重來鈕</Button>
+                        <Button color='success' variant='text' size='medium' icon='Add'>人生重來鈕</Button>
+                        <Button color='success' variant='text' size='small' icon='Add'>人生重來鈕</Button>
+                    </div>
                 </section>
                 <section style={{ display: 'flex', gap: '8px' }}>
                     <h6 style={{ fontSize: '24px', margin: 0 }}>
@@ -338,5 +343,5 @@ function App() {
             </ThemeProvider>
         </>
     )
-}
-export default App
+
+}export default App
