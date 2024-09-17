@@ -1,6 +1,12 @@
 import { createTheme, alpha } from "@mui/material/styles";
 import { Palette } from "../enums/Theme/paletteEnum";
 import { zhTW } from "@mui/material/locale";
+import { FontSizeBaseEnum,FontSizeEnum } from "../enums/FontSizeEnum";
+import { FontWeightEnum } from "../enums/FontWeightEnum";
+import { LineHeightEnum } from "../enums/LineHeightEnum";
+
+// First, get the default shadows
+const defaultTheme = createTheme()
 
 const theme = createTheme(
   {
@@ -52,6 +58,88 @@ const theme = createTheme(
         900: Palette.Grey900,
       },
     },
+    typography: {
+      ...defaultTheme.typography,
+      fontFamily: 'Noto Sans TC',
+      fontSize: FontSizeBaseEnum.base,
+      fontWeightRegular: FontWeightEnum.FontWeightRegular,
+      fontWeightLight: FontWeightEnum.FontWeightLight,
+      fontWeightMedium: FontWeightEnum.FontWeightLMedium,
+      fontWeightBold: FontWeightEnum.FontWeightBold,
+      h1: {
+          fontSize: '3.75rem', // 60px
+          fontWeight: 700,
+          lineHeight: 1.2, // 72px / 60px
+          letterSpacing: '-0.09375rem' // -1.5px
+      },
+      h2: {
+          fontSize: '3rem', // 48px
+          fontWeight: 700,
+          lineHeight: 1.25, // 60px / 48px
+          letterSpacing: '-0.09375rem' // -1.5px
+      },
+      h3: {
+          fontSize: '2.5rem', // 40px
+          fontWeight: 700,
+          lineHeight: 1.25, // 50px / 40px
+          letterSpacing: '-0.03125rem' // -0.5px
+      },
+      h4: {
+          fontSize: '2rem', // 32px
+          fontWeight: 700,
+          lineHeight: 1.25, // 40px / 32px
+          letterSpacing: '-0.03125rem' // -0.5px
+      },
+      h5: {
+          fontSize: '1.5rem', // 24px
+          fontWeight: 700,
+          lineHeight: 1.25,
+          letterSpacing: '-0.03125rem' // -0.5px
+      },
+      subtitle1: {
+          fontSize: '1.25rem', // 20px
+          fontWeight: 700,
+          lineHeight: 1.4, // 28px / 20px
+          letterSpacing: 0
+      },
+      subtitle2: {
+          fontSize: '1.125rem', // 18px
+          fontWeight: 700,
+          lineHeight: 1.556, // 28px / 18px
+          letterSpacing: 0
+      },
+      subtitle3: {
+          fontSize: '1rem', // 16px
+          fontWeight: 700,
+          lineHeight: 1.5, // 24px / 16px
+          letterSpacing: 0
+      },
+      textTiny: {
+          fontSize: FontSizeEnum.TextTiny,
+          lineHeight: LineHeightEnum.LineHeight100
+      },
+      textSmall: {
+          fontSize: FontSizeEnum.TextSmall,
+          lineHeight: LineHeightEnum.LineHeight125
+      },
+      textMedium: {
+          fontSize: FontSizeEnum.TextMedium,
+          lineHeight: LineHeightEnum.LineHeight150
+      },
+      textLarge: {
+          fontSize: FontSizeEnum.TextLarge,
+          lineHeight: LineHeightEnum.LineHeight150
+      },
+      textXLarge: {
+          fontSize: FontSizeEnum.TextXLarge,
+          lineHeight: LineHeightEnum.LineHeight150
+      },
+      button: {
+          fontWeight: FontWeightEnum.FontWeightRegular,
+          fontSize: FontSizeEnum.TextMedium,
+          lineHeight: LineHeightEnum.LineHeight150
+      }
+  },
     components: {
       MuiButton: {
         styleOverrides: {
@@ -59,86 +147,6 @@ const theme = createTheme(
             borderRadius: "6px",
             "& span.MuiButton-startIcon": { marginRight: "0px" },
           },
-          // containedPrimary: {
-          //     '&.Mui-disabled': {
-          //         color: Palette.White
-          //     }
-          // },
-          // containedSecondary: {
-          //     '&.Mui-disabled': {
-          //         color: Palette.White
-          //     }
-          // },
-          // outlinedPrimary: {
-          //     borderColor: Palette.Blue600,
-          //     boxShadow:
-          //         '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
-          //     '&:hover': {
-          //         borderColor: Palette.Blue500,
-          //         boxShadow: 'none'
-          //     },
-          //     '&.Mui-disabled': {
-          //         color: Palette.Grey500
-          //     }
-          // },
-          // outlinedSecondary: {
-          //     color: Palette.Black,
-          //     borderColor: Palette.Grey600,
-          //     boxShadow:
-          //         '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
-          //     '&:hover': {
-          //         borderColor: Palette.Grey600,
-          //         backgroundColor: alpha('#000000', 0.05),
-          //         boxShadow: 'none'
-          //     },
-          //     '&.Mui-disabled': {
-          //         borderColor: alpha('#111111', 0.15),
-          //         color: Palette.Grey500
-          //     }
-          // },
-          // outlinedSuccess: {
-          //     borderColor: Palette.Green500,
-          //     boxShadow:
-          //         '0 2px 2px 0 rgba(0, 0, 0, 0.15), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.10)',
-          //     '&:hover': {
-          //         borderColor: Palette.Green500,
-          //         backgroundColor: alpha(Palette.Green500, 0.05),
-          //         boxShadow: 'none'
-          //     },
-          //     '&.Mui-disabled': {
-          //         borderColor: alpha('#111111', 0.15),
-          //         color: Palette.Grey500
-          //     }
-          // },
-          // textPrimary: {
-          //     '&:hover': {
-          //         borderColor: Palette.Blue500
-          //     },
-          //     '&.Mui-disabled': {
-          //         color: Palette.Grey500
-          //     }
-          // },
-          // textSecondary: {
-          //     color: Palette.Black,
-          //     '&:hover': {
-          //         borderColor: Palette.Grey600,
-          //         backgroundColor: alpha('#000000', 0.05)
-          //     },
-          //     '&.Mui-disabled': {
-          //         borderColor: alpha('#111111', 0.15),
-          //         color: Palette.Grey500
-          //     }
-          // },
-          // textSuccess: {
-          //     '&:hover': {
-          //         borderColor: Palette.Green500,
-          //         backgroundColor: alpha(Palette.Green500, 0.05)
-          //     },
-          //     '&.Mui-disabled': {
-          //         borderColor: alpha('#111111', 0.15),
-          //         color: Palette.Grey500
-          //     }
-          // }
         },
       },
       MuiPagination: {
