@@ -1,12 +1,12 @@
 import { createTheme, alpha } from "@mui/material/styles";
 import { Palette } from "../enums/Theme/paletteEnum";
 import { zhTW } from "@mui/material/locale";
-import { FontSizeBaseEnum,FontSizeEnum } from "../enums/FontSizeEnum";
+import { FontSizeBaseEnum, FontSizeEnum } from "../enums/FontSizeEnum";
 import { FontWeightEnum } from "../enums/FontWeightEnum";
 import { LineHeightEnum } from "../enums/LineHeightEnum";
 
 // First, get the default shadows
-const defaultTheme = createTheme()
+const defaultTheme = createTheme();
 
 const theme = createTheme(
   {
@@ -60,86 +60,86 @@ const theme = createTheme(
     },
     typography: {
       ...defaultTheme.typography,
-      fontFamily: 'Noto Sans TC',
+      fontFamily: "Noto Sans TC",
       fontSize: FontSizeBaseEnum.base,
       fontWeightRegular: FontWeightEnum.FontWeightRegular,
       fontWeightLight: FontWeightEnum.FontWeightLight,
       fontWeightMedium: FontWeightEnum.FontWeightLMedium,
       fontWeightBold: FontWeightEnum.FontWeightBold,
       h1: {
-          fontSize: '3.75rem', // 60px
-          fontWeight: 700,
-          lineHeight: 1.2, // 72px / 60px
-          letterSpacing: '-0.09375rem' // -1.5px
+        fontSize: "3.75rem", // 60px
+        fontWeight: 700,
+        lineHeight: 1.2, // 72px / 60px
+        letterSpacing: "-0.09375rem", // -1.5px
       },
       h2: {
-          fontSize: '3rem', // 48px
-          fontWeight: 700,
-          lineHeight: 1.25, // 60px / 48px
-          letterSpacing: '-0.09375rem' // -1.5px
+        fontSize: "3rem", // 48px
+        fontWeight: 700,
+        lineHeight: 1.25, // 60px / 48px
+        letterSpacing: "-0.09375rem", // -1.5px
       },
       h3: {
-          fontSize: '2.5rem', // 40px
-          fontWeight: 700,
-          lineHeight: 1.25, // 50px / 40px
-          letterSpacing: '-0.03125rem' // -0.5px
+        fontSize: "2.5rem", // 40px
+        fontWeight: 700,
+        lineHeight: 1.25, // 50px / 40px
+        letterSpacing: "-0.03125rem", // -0.5px
       },
       h4: {
-          fontSize: '2rem', // 32px
-          fontWeight: 700,
-          lineHeight: 1.25, // 40px / 32px
-          letterSpacing: '-0.03125rem' // -0.5px
+        fontSize: "2rem", // 32px
+        fontWeight: 700,
+        lineHeight: 1.25, // 40px / 32px
+        letterSpacing: "-0.03125rem", // -0.5px
       },
       h5: {
-          fontSize: '1.5rem', // 24px
-          fontWeight: 700,
-          lineHeight: 1.25,
-          letterSpacing: '-0.03125rem' // -0.5px
+        fontSize: "1.5rem", // 24px
+        fontWeight: 700,
+        lineHeight: 1.25,
+        letterSpacing: "-0.03125rem", // -0.5px
       },
       subtitle1: {
-          fontSize: '1.25rem', // 20px
-          fontWeight: 700,
-          lineHeight: 1.4, // 28px / 20px
-          letterSpacing: 0
+        fontSize: "1.25rem", // 20px
+        fontWeight: 700,
+        lineHeight: 1.4, // 28px / 20px
+        letterSpacing: 0,
       },
       subtitle2: {
-          fontSize: '1.125rem', // 18px
-          fontWeight: 700,
-          lineHeight: 1.556, // 28px / 18px
-          letterSpacing: 0
+        fontSize: "1.125rem", // 18px
+        fontWeight: 700,
+        lineHeight: 1.556, // 28px / 18px
+        letterSpacing: 0,
       },
       subtitle3: {
-          fontSize: '1rem', // 16px
-          fontWeight: 700,
-          lineHeight: 1.5, // 24px / 16px
-          letterSpacing: 0
+        fontSize: "1rem", // 16px
+        fontWeight: 700,
+        lineHeight: 1.5, // 24px / 16px
+        letterSpacing: 0,
       },
       textTiny: {
-          fontSize: FontSizeEnum.TextTiny,
-          lineHeight: LineHeightEnum.LineHeight100
+        fontSize: FontSizeEnum.TextTiny,
+        lineHeight: LineHeightEnum.LineHeight100,
       },
       textSmall: {
-          fontSize: FontSizeEnum.TextSmall,
-          lineHeight: LineHeightEnum.LineHeight125
+        fontSize: FontSizeEnum.TextSmall,
+        lineHeight: LineHeightEnum.LineHeight125,
       },
       textMedium: {
-          fontSize: FontSizeEnum.TextMedium,
-          lineHeight: LineHeightEnum.LineHeight150
+        fontSize: FontSizeEnum.TextMedium,
+        lineHeight: LineHeightEnum.LineHeight150,
       },
       textLarge: {
-          fontSize: FontSizeEnum.TextLarge,
-          lineHeight: LineHeightEnum.LineHeight150
+        fontSize: FontSizeEnum.TextLarge,
+        lineHeight: LineHeightEnum.LineHeight150,
       },
       textXLarge: {
-          fontSize: FontSizeEnum.TextXLarge,
-          lineHeight: LineHeightEnum.LineHeight150
+        fontSize: FontSizeEnum.TextXLarge,
+        lineHeight: LineHeightEnum.LineHeight150,
       },
       button: {
-          fontWeight: FontWeightEnum.FontWeightRegular,
-          fontSize: FontSizeEnum.TextMedium,
-          lineHeight: LineHeightEnum.LineHeight150
-      }
-  },
+        fontWeight: FontWeightEnum.FontWeightRegular,
+        fontSize: FontSizeEnum.TextMedium,
+        lineHeight: LineHeightEnum.LineHeight150,
+      },
+    },
     components: {
       MuiButton: {
         styleOverrides: {
@@ -148,29 +148,6 @@ const theme = createTheme(
             "& span.MuiButton-startIcon": { marginRight: "0px" },
           },
         },
-        variants:[
-          {
-            props: { size: 'small' },
-            style: {
-              fontSize: FontSizeEnum.TextTiny,
-              lineHeight:LineHeightEnum.LineHeight100,
-            },
-          },
-          {
-            props: { size: 'medium' },
-            style: {
-              fontSize: FontSizeEnum.TextSmall,
-              lineHeight:LineHeightEnum.LineHeight125,
-            },
-          },
-          {
-            props: { size: 'large' },
-            style: {
-              fontSize: FontSizeEnum.TextMedium,
-              lineHeight:LineHeightEnum.LineHeight150,
-            },
-          },
-        ]
       },
       MuiPagination: {
         styleOverrides: {
