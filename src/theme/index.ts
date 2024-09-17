@@ -148,6 +148,29 @@ const theme = createTheme(
             "& span.MuiButton-startIcon": { marginRight: "0px" },
           },
         },
+        variants:[
+          {
+            props: { size: 'small' },
+            style: {
+              fontSize: FontSizeEnum.TextTiny,
+              lineHeight:LineHeightEnum.LineHeight100,
+            },
+          },
+          {
+            props: { size: 'medium' },
+            style: {
+              fontSize: FontSizeEnum.TextSmall,
+              lineHeight:LineHeightEnum.LineHeight125,
+            },
+          },
+          {
+            props: { size: 'large' },
+            style: {
+              fontSize: FontSizeEnum.TextMedium,
+              lineHeight:LineHeightEnum.LineHeight150,
+            },
+          },
+        ]
       },
       MuiPagination: {
         styleOverrides: {
