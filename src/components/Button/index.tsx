@@ -110,7 +110,7 @@ const StyledButton = styled(MuiButton)<ButtonProps>(({ theme, size }) => ({
     },
   },
   /**
-   * 使用立即函式寫入 switch 判斷式
+   * 根據傳入的 size 參數，判斷要使用哪一種 fontSize
    */
   fontSize: ((size) => {
     switch (size) {
@@ -125,7 +125,7 @@ const StyledButton = styled(MuiButton)<ButtonProps>(({ theme, size }) => ({
     }
   })(size),
   /**
-   * 使用立即函式寫入 switch 判斷式
+   * 根據傳入的 size 參數，判斷要使用哪一種 lineHeight
    */
   lineHeight: ((size) => {
     switch (size) {
