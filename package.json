@@ -10,7 +10,8 @@
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "test": "jest"
+        "test": "jest",
+        "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
     },
     "dependencies": {
         "@emotion/cache": "^11.13.1",
